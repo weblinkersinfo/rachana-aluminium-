@@ -14,38 +14,48 @@ export const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 50);
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    setIsScrolled(currentScrollY > 50);
 
-      const headerHeight = 80;
-      // List of all classes that have a dark background in the CSS
-      const darkClasses = [
-        '.bg-dark', '.hero', '.why-hero', '.why-connect-cta', '.why-trust-indicators',
-        '.in-house-manufacturing', '.sw-hero', '.project-stats', '.projects-hero',
-        '.projects-connect', '.products-hero', '.products-connect-cta', '.connect-hero',
-        '.footer', '.connect-final-cta', '.manufacturing-story', '.about-hero', '.sys-hero'
-      ].join(', ');
-      
-      const darkSections = document.querySelectorAll(darkClasses);
-      let overDark = false;
-      const checkY = headerHeight / 2;
-      
-      darkSections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= checkY && rect.bottom >= checkY) {
-          overDark = true;
-        }
-      });
-      
-      setIsDarkBackground(overDark);
-    };
+    const headerHeight = 80;
+    // List of all classes that have a dark background in the CSS
+    const darkClasses = [
+      '.bg-dark', '.hero', '.why-hero', '.why-connect-cta', '.why-trust-indicators',
+      '.in-house-manufacturing', '.sw-hero', '.project-stats', '.projects-hero',
+      '.projects-connect', '.products-hero', '.products-connect-cta', '.connect-hero',
+      '.footer', '.connect-final-cta', '.manufacturing-story', '.about-hero', '.sys-hero'
+    ].join(', ');
+    
+    const darkSections = document.querySelectorAll(darkClasses);
+    let overDark = false;
+    const checkY = headerHeight / 2;
+    
+    darkSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= checkY && rect.bottom >= checkY) {
+        overDark = true;
+      }
+    });
+    
+    setIsDarkBackground(overDark);
+  };
 
+  useEffect(() => {
     handleScroll(); // Initial check
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Re-check theme when route changes
+  useEffect(() => {
+    // Small timeout to allow DOM to render the new page
+    const timer = setTimeout(() => {
+      handleScroll();
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   // Close mobile menu on route change
   useEffect(() => {
