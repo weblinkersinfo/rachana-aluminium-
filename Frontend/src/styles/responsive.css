@@ -1,7 +1,7 @@
 /* Tablet */
 @media (max-width: 1023px) {
   :root {
-    --container-padding: 48px;
+    --container-padding: 40px;
   }
   
   .grid-4, .grid-3 {
@@ -9,21 +9,30 @@
   }
 }
 
-/* Mobile */
+/* Mobile (Premium Overhaul) */
 @media (max-width: 767px) {
   :root {
-    --container-padding: 20px;
+    --container-padding: 16px; /* Tighter padding for wider content area on small screens */
+    --space-xl: 40px; /* Reduce massive vertical section paddings */
+    --space-lg: 32px;
+    --space-md: 20px;
   }
   
-  .display-heading { font-size: 2.5rem; }
-  .page-heading { font-size: 2rem; }
-  .section-heading { font-size: 1.75rem; }
+  /* Typography Refinements for Mobile */
+  .display-heading { font-size: 2rem; }
+  .page-heading { font-size: 1.75rem; }
+  .section-heading { font-size: 1.5rem; }
+  .subheading { font-size: 1.125rem; }
   
+  /* Collapse all grids to single column */
   .grid-4, .grid-3, .grid-2 {
     grid-template-columns: 1fr;
+    gap: var(--space-md); /* Tighter gap between stacked elements */
   }
   
-  .section {
-    padding: var(--space-lg) 0;
+  /* Ensure text is readable and breaks correctly */
+  p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }

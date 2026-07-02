@@ -8,3 +8,10 @@
   gap: var(--space-lg) var(--space-md);
   margin-top: var(--space-lg);
 }
+
+@media (max-width: 767px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

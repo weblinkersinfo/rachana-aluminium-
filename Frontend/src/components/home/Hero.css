@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* Fallback */
+  height: 100dvh; /* Dynamic viewport height for better mobile display */
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -88,7 +89,18 @@
 @media (max-width: 767px) {
   .hero-actions {
     flex-direction: column;
-    align-items: center;
-    gap: var(--space-sm);
+    align-items: stretch; /* Stretch buttons to full width */
+    gap: var(--space-md);
+    width: 100%;
+  }
+  
+  .hero-actions > a {
+    width: 100%;
+  }
+  
+  .hero-actions > a > button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
