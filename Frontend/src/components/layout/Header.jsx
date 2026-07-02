@@ -13,7 +13,6 @@ export const Header = () => {
 
   const location = useLocation();
 
-  useEffect(() => {
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     setIsScrolled(currentScrollY > 50);

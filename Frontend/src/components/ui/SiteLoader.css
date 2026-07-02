@@ -1,0 +1,97 @@
+.site-loader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  pointer-events: none; /* Allows clicks to pass through once animated away */
+}
+
+/* 
+  The two panels representing the window panes
+  They start taking up 50% width each.
+*/
+.site-loader-panel {
+  width: 50%;
+  height: 100vh;
+  height: 100dvh;
+  /* Glass effect for the window pane */
+  background-color: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  /* 25mm series aluminium frame simulation */
+  border: 25px solid #2a2a2a; 
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8); /* Depth for the frame */
+  
+  position: relative;
+  transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+/* Make the center seam look like interlocking window frames */
+.site-loader-panel.left {
+  border-right: 15px solid #333; /* Slightly thinner inner stile */
+  transform-origin: left;
+}
+
+.site-loader-panel.right {
+  border-left: 15px solid #1a1a1a; /* Overlapping stile */
+  transform-origin: right;
+}
+
+/* 
+  The center logo container
+*/
+.site-loader-logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-out, transform 0.8s ease-out;
+}
+
+.site-loader-logo {
+  height: 60px;
+  width: auto;
+  opacity: 0;
+  animation: pulseLogo 1.5s ease-in-out infinite alternate;
+}
+
+/* 
+  Animation States
+*/
+.site-loader-container.loaded .site-loader-logo-wrapper {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+}
+
+/* Slide panels away horizontally like a window opening */
+.site-loader-container.loaded .site-loader-panel.left {
+  transform: translateX(-100%);
+}
+
+.site-loader-container.loaded .site-loader-panel.right {
+  transform: translateX(100%);
+}
+
+/* When totally hidden, remove from flow entirely if needed, 
+   but pointer-events: none usually suffices. */
+.site-loader-container.hidden {
+  display: none;
+}
+
+@keyframes pulseLogo {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
