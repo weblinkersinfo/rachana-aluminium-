@@ -1,0 +1,56 @@
+.ws-section {
+  background-color: var(--bg-secondary);
+}
+
+.ws-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.ws-card {
+  background-color: var(--bg-primary);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-subtle, #EAEAEA);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow 0.25s ease;
+}
+
+.ws-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.ws-card--highlight {
+  border-color: var(--accent-primary);
+}
+
+.ws-card-icon {
+  color: var(--accent-primary);
+}
+
+.ws-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ws-card-desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.ws-card-cta {
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .ws-grid {
+    grid-template-columns: 1fr;
+  }
+}

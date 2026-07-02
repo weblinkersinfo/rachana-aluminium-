@@ -1,0 +1,5 @@
+.projects-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}

@@ -1,0 +1,209 @@
+/* System Windows Page Animations and Styles */
+
+.sys-page {
+  overflow-x: hidden;
+}
+
+.sys-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; /* Offset header */
+  overflow: hidden;
+}
+
+.sys-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/sys_hero.png');
+  background-size: cover;
+  background-position: center;
+  /* Parallax effect on scroll via animation trick or just fixed */
+  background-attachment: fixed;
+  z-index: 0;
+  transform: scale(1.05);
+  animation: heroZoom 20s infinite alternate ease-in-out;
+}
+
+@keyframes heroZoom {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.1); }
+}
+
+.sys-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+}
+
+.sys-hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--text-inverse);
+  max-width: 800px;
+}
+
+.sys-hero-content .display-heading {
+  color: var(--text-inverse);
+  margin-bottom: var(--space-md);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.sys-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--accent-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+  border-radius: 4px;
+}
+
+.sys-hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Series Sections */
+.sys-series-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: center;
+}
+
+.sys-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  transform: translateY(0);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.sys-image-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.sys-series-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.sys-image-wrapper:hover .sys-series-img {
+  transform: scale(1.05);
+}
+
+.sys-image-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(to left, rgba(0,0,0,0.2), transparent);
+  pointer-events: none;
+}
+
+.sys-image-accent.left {
+  right: auto;
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+}
+
+.sys-series-desc {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+.sys-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sys-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.sys-feature-list li:hover {
+  transform: translateX(10px);
+  color: var(--accent-primary);
+}
+
+.sys-feature-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* Animations */
+.reveal-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.reveal-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .sys-series-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .sys-series-img {
+    height: 400px;
+  }
+  
+  .reverse-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 767px) {
+  .sys-hero {
+    min-height: 60vh;
+  }
+  
+  .sys-hero-bg {
+    background-attachment: scroll;
+  }
+  
+  .sys-series-img {
+    height: 300px;
+  }
+}

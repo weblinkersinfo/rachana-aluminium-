@@ -1,0 +1,154 @@
+/* ── How We Work Process ── */
+.hww-section {
+  background-color: var(--bg-primary);
+}
+
+.hww-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto var(--space-xl);
+}
+
+.hww-supporting {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: var(--space-sm);
+}
+
+/* Horizontal timeline */
+.hww-timeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 var(--space-sm);
+}
+
+/* Connecting line */
+.hww-timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background-color: var(--border-subtle);
+  z-index: 0;
+}
+
+.hww-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 140px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.hww-step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hww-step-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 14px;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.hww-step.is-visible .hww-step-dot {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.hww-step-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.4s ease;
+}
+
+.hww-step.is-visible .hww-step-num {
+  color: var(--text-inverse);
+}
+
+.hww-step-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+/* Progress line that fills up */
+.hww-timeline-progress {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  height: 2px;
+  background-color: var(--accent-primary);
+  z-index: 0;
+  transition: width 2s ease-out;
+  width: 0;
+}
+
+.hww-timeline-progress.is-filling {
+  width: calc(100% - 80px);
+}
+
+/* Mobile: vertical timeline */
+@media (max-width: 900px) {
+  .hww-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .hww-timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 19px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .hww-timeline-progress {
+    top: 0;
+    left: 19px;
+    width: 2px !important;
+    height: 0;
+    transition: height 2s ease-out;
+  }
+
+  .hww-timeline-progress.is-filling {
+    width: 2px !important;
+    height: 100%;
+  }
+
+  .hww-step {
+    flex-direction: row;
+    text-align: left;
+    max-width: 100%;
+    gap: 16px;
+    padding: 12px 0;
+  }
+
+  .hww-step-dot {
+    margin-bottom: 0;
+  }
+}

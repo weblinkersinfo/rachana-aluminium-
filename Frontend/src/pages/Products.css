@@ -1,0 +1,12 @@
+.products-page {
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(211, 47, 47, 0.02), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.03), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f0f3f7 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.products-page section {
+  position: relative;
+}

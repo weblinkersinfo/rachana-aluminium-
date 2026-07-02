@@ -1,0 +1,138 @@
+.about-hero {
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 2.2s ease-in-out, transform 14s ease-out;
+}
+
+.about-hero-bg.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.42) 50%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  z-index: 1;
+}
+
+.about-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.about-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-inverse);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out 0.6s, transform 1s ease-out 0.6s;
+  text-align: center;
+}
+
+.about-hero-content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-hero-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.about-hero-title {
+  margin-bottom: var(--space-sm);
+  line-height: 1.08;
+  color: #ffffff;
+}
+
+.about-hero-subtitle {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  opacity: 0.85;
+  font-weight: 300;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-md);
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-hero-secondary-link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.about-hero-secondary-link:hover {
+  color: var(--text-inverse);
+}
+
+.about-hero-actions {
+  margin-top: var(--space-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.6s;
+}
+
+.about-hero-content.loaded .about-hero-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    align-items: center;
+    height: 70vh;
+  }
+
+  .about-hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .about-hero-subtitle {
+    max-width: 100%;
+  }
+
+  .about-hero-actions {
+    justify-content: center;
+  }
+}

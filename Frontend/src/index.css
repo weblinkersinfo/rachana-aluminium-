@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
+
+@import './styles/variables.css';
+@import './styles/reset.css';
+@import './styles/typography.css';
+@import './styles/utilities.css';
+@import './styles/animations.css';
+@import './styles/responsive.css';
+
+/* Blur the whole website content (excluding header) when mobile menu is open */
+body.menu-open #root > *:not(header) {
+  filter: blur(10px);
+  pointer-events: none;
+  transition: filter var(--transition-medium);
+}

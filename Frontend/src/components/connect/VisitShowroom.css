@@ -1,0 +1,82 @@
+/* ── Visit Showroom ── */
+.vs-section {
+  background-color: var(--bg-primary);
+}
+
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .vs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxl);
+  }
+}
+
+.vs-image-wrapper {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 3;
+}
+
+.vs-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 8s ease-out;
+}
+
+.vs-image-wrapper:hover .vs-image {
+  transform: scale(1.03);
+}
+
+.vs-content {
+  max-width: 560px;
+}
+
+.vs-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.vs-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.vs-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+.vs-cta {
+  margin-top: var(--space-md);
+}
+
+.vs-cta .btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+@media (max-width: 991px) {
+  .vs-content {
+    max-width: 100%;
+  }
+}

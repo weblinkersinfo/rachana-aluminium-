@@ -1,0 +1,13 @@
+.home-footer-sections {
+  position: relative;
+  background-image: url("/images/nature_window_view.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .home-footer-sections {
+    background-size: cover; /* On mobile, 100% 100% squishes it horribly */
+  }
+}

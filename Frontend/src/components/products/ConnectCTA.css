@@ -1,0 +1,41 @@
+.connect-cta-section {
+  background-color: var(--bg-dark);
+  color: var(--text-inverse);
+  text-align: center;
+  padding: var(--space-xxl) 0;
+}
+
+.connect-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connect-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: #ffffff;
+}
+
+.connect-cta-desc {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+}
+
+.connect-cta-action .btn-secondary {
+  color: var(--text-inverse) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.connect-cta-action .btn-secondary:hover {
+  color: var(--accent-primary) !important;
+  border-color: var(--accent-primary) !important;
+}

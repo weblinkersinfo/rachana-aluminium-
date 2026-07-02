@@ -1,0 +1,48 @@
+/* Scroll reveal animations handled by useReveal hook */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.is-revealed .reveal-stagger {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-revealed .reveal-stagger:nth-child(1) { transition-delay: 100ms; }
+.is-revealed .reveal-stagger:nth-child(2) { transition-delay: 200ms; }
+.is-revealed .reveal-stagger:nth-child(3) { transition-delay: 300ms; }
+.is-revealed .reveal-stagger:nth-child(4) { transition-delay: 400ms; }
+.is-revealed .reveal-stagger:nth-child(5) { transition-delay: 500ms; }
+.is-revealed .reveal-stagger:nth-child(6) { transition-delay: 600ms; }
+
+/* Base keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

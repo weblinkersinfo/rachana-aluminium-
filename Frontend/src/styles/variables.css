@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-dark: #111111;
+  --overlay-dark: rgba(0, 0, 0, 0.45);
+  
+  --text-primary: #1C1C1C;
+  --text-secondary: #666666;
+  --text-inverse: #FFFFFF;
+  
+  --accent-primary: #D32F2F;
+  --border-subtle: #EAEAEA;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-xxl: 96px;
+
+  /* Layout */
+  --max-width: 1536px;
+  --max-width-narrow: 1024px;
+  --max-width-text: 800px;
+  --container-padding: 64px;
+  
+  /* Radii & Shadows */
+  --radius-sm: 4px;
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  /* Transitions */
+  --transition-fast: 200ms ease-out;
+  --transition-medium: 300ms ease-out;
+  --transition-slow: 500ms ease-out;
+}

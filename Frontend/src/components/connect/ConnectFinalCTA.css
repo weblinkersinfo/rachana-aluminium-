@@ -1,0 +1,68 @@
+/* ── Connect Final CTA ── */
+.cfcta-section {
+  background-color: var(--bg-dark);
+  color: var(--text-inverse);
+  text-align: center;
+  padding: var(--space-xxl) 0;
+}
+
+.cfcta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cfcta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: #ffffff;
+}
+
+.cfcta-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  opacity: 0.85;
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+}
+
+.cfcta-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cfcta-actions .btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.cfcta-secondary-link {
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cfcta-secondary-link:hover {
+  color: var(--text-inverse);
+}
+
+.cfcta-secondary-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.cfcta-secondary-link:hover svg {
+  transform: translateX(2px);
+}

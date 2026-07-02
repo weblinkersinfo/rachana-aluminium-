@@ -1,0 +1,268 @@
+/* ==========================================================================
+   SERIES 36MM PAGE STYLES - CUSTOM DOUBLE BROCHURE LAYOUT
+   ========================================================================== */
+
+/* Overall Page Scope */
+.series-36mm-page {
+  background-color: #fff;
+  padding-bottom: var(--space-3xl);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------
+   TOP SECTION (Reuses some globals, but added specificity)
+   -------------------------------------------------------- */
+.series-36mm-page .brochure-top {
+  padding: 120px 0 var(--space-xl) 0; /* Extra top padding for header */
+  background-color: #f4f4f4;
+}
+
+/* --------------------------------------------------------
+   DIAGONAL SHOWCASE SECTION (Image 1 Middle)
+   -------------------------------------------------------- */
+.s36-showcase {
+  width: 100%;
+  position: relative;
+  background-color: #f4f4f4; /* Continues the top background */
+  display: flex;
+  justify-content: space-between; /* Space between details (left) and frame (right) */
+  align-items: flex-end; /* Align to bottom so CAD drawings sit nicely */
+  padding: 0 0 0 8vw; /* Add significant left padding so it aligns with standard containers */
+  margin-top: -30px; /* Slight pull up */
+  z-index: 5;
+  overflow: hidden; /* Prevent horizontal scroll if frame overflows right */
+}
+
+.s36-diagonal-frame {
+  width: 100%;
+  max-width: 1100px; /* Keep it constrained but massive */
+  height: auto;
+  transform: scale(1.05) translateX(5%); /* Push slightly off-screen right */
+  transform-origin: right bottom;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+}
+
+/* --------------------------------------------------------
+   SECTION DETAIL (Image 1 Bottom)
+   -------------------------------------------------------- */
+.s36-section-detail-left {
+  flex: 0 0 450px; /* Fixed width for the details on the left */
+  padding-bottom: var(--space-3xl); /* Add some breathing room at the bottom too */
+  z-index: 10;
+}
+
+.s36-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: var(--space-xl);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.s36-cad-flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  align-items: flex-start; /* Align left */
+}
+
+.s36-cad-img {
+  width: 100%;
+  max-width: 250px;
+  object-fit: contain;
+}
+
+.s36-cad-img-wide {
+  width: 100%;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+@media (min-width: 992px) {
+  .s36-cad-flex {
+    flex-direction: column; /* Stack them vertically to fit on the left */
+    justify-content: flex-start;
+    align-items: flex-start; 
+    gap: 40px;
+  }
+}
+
+/* --------------------------------------------------------
+   BOTTOM SPLIT (Image 2)
+   -------------------------------------------------------- */
+.s36-bottom-split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding: var(--space-2xl) 0;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .s36-bottom-split {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Left Column */
+.s36-left-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Move frame completely to the left side */
+  padding-left: 0; /* Ensures it touches the left edge */
+}
+
+.s36-vertical-frame {
+  width: 100%;
+  max-width: 450px;
+  filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.2));
+  margin-bottom: var(--space-2xl);
+  transform: none; 
+}
+
+/* Icon Grid */
+.s36-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 450px;
+  padding-left: 2vw; /* Give icons a little breathing room from the extreme edge */
+}
+
+.s36-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.s36-icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.s36-icon-item:hover .s36-icon-circle {
+  background-color: var(--accent-primary, #D32F2F);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
+}
+
+.s36-icon-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* Right Column */
+.s36-right-col {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding-right: 8vw; /* Simulates being inside a container on the right side */
+}
+
+.s36-spec-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.s36-right-col .s36-section-title {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+/* Reusing grid styles from standard pages */
+.s36-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid #e0e0e0;
+}
+
+.s36-spec-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.s36-spec-label {
+  flex: 1;
+  font-weight: 600;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.s36-spec-value {
+  flex: 1;
+  color: #666;
+}
+
+/* Middle Graphics in Right Column */
+.s36-graphics-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .s36-graphics-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.s36-water-drainage {
+  flex: 1;
+}
+
+.s36-water-drainage img {
+  width: 100%;
+  max-width: 280px;
+}
+
+.s36-slim-profile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.s36-slim-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #eaeaea;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.s36-slim-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: #333;
+}

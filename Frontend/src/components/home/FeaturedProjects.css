@@ -1,0 +1,20 @@
+.featured-projects {
+  padding: var(--space-xl) 0;
+  background-color: var(--bg-primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.projects-grid .project-card:first-child {
+  grid-column: 1 / -1; /* First project is full width */
+}
+
+@media (max-width: 767px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

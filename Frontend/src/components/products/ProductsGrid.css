@@ -1,0 +1,10 @@
+.products-grid-section {
+  background-color: transparent;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg) var(--space-md);
+  margin-top: var(--space-lg);
+}

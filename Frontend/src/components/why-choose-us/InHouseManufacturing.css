@@ -1,0 +1,98 @@
+/* ── In-House Manufacturing ── */
+.ihm-section {
+  background-color: var(--bg-primary);
+}
+
+.ihm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .ihm-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxl);
+  }
+}
+
+.ihm-image-wrapper {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 3;
+}
+
+.ihm-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 8s ease-out;
+}
+
+.ihm-image-wrapper:hover .ihm-image {
+  transform: scale(1.03);
+}
+
+.ihm-content {
+  max-width: 560px;
+}
+
+.ihm-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.ihm-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.ihm-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+.ihm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-dark);
+  color: var(--text-inverse);
+  border-radius: var(--radius-sm);
+}
+
+.ihm-badge-num {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.ihm-badge-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+@media (max-width: 991px) {
+  .ihm-content {
+    max-width: 100%;
+  }
+}
