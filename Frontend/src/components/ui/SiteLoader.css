@@ -3,7 +3,6 @@
   inset: 0;
   z-index: 99999;
   display: flex;
-  pointer-events: none; /* Allows clicks to pass through once animated away */
   overflow: hidden; /* Prevent mobile horizontal scrollbars when panels slide out */
 }
 
