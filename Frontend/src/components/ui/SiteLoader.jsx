@@ -6,12 +6,14 @@ export const SiteLoader = () => {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
-    // Prevent scrolling while loading
+    // Prevent scrolling while loading across all browsers/devices
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
 
     // Simulate load time or wait for actual window load
     const timer = setTimeout(() => {
       setIsLoaded(true);
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       
       // Completely hide after animation finishes to prevent DOM blocking
@@ -22,6 +24,7 @@ export const SiteLoader = () => {
 
     return () => {
       clearTimeout(timer);
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     };
   }, []);
