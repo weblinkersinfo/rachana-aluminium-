@@ -1,0 +1,174 @@
+/* SlidingWindowAnimation.css */
+
+.swa-container {
+  width: var(--swa-width);
+  height: var(--swa-height);
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #f5f5f5 0%, #e0e0e0 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.swa-container.swa-fullscreen {
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.swa-container.swa-fullscreen .swa-scene {
+  width: 100%;
+  height: 100%;
+}
+
+.swa-container.swa-fullscreen .swa-outer-frame {
+  background: transparent;
+  border-width: 4px; /* Ultra sleek for full screen */
+}
+
+.swa-container.swa-fullscreen .swa-glass {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.swa-scene {
+  width: 80%;
+  height: 80%;
+  perspective: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Outer Window Frame */
+.swa-outer-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #fff;
+  border: 4px solid var(--swa-frame-color); /* Reduced border */
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.3),
+    inset 0 10px 20px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  transform-style: preserve-3d;
+  overflow: hidden; /* Hide panels as they slide outside the inner frame */
+}
+
+/* Creates a fake 3D inner reveal (the wall depth) */
+.swa-frame-depth {
+  position: absolute;
+  background: #111;
+}
+.swa-frame-depth.top, .swa-frame-depth.bottom {
+  left: 0; right: 0; height: 10px;
+}
+.swa-frame-depth.left, .swa-frame-depth.right {
+  top: 0; bottom: 0; width: 10px;
+}
+.swa-frame-depth.top { top: 0; transform-origin: top; transform: rotateX(-90deg); }
+.swa-frame-depth.bottom { bottom: 0; transform-origin: bottom; transform: rotateX(90deg); }
+.swa-frame-depth.left { left: 0; transform-origin: left; transform: rotateY(90deg); }
+.swa-frame-depth.right { right: 0; transform-origin: right; transform: rotateY(-90deg); }
+
+/* Shutters wrapper */
+.swa-shutters-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transform-style: preserve-3d;
+}
+
+/* Individual Shutters */
+.swa-shutter {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* To simulate sliding tracks, the right shutter sits slightly behind the left shutter in Z space */
+.swa-shutter-left {
+  transform: translateZ(5px);
+  animation: swaSlideLeft var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
+}
+
+.swa-shutter-right {
+  transform: translateZ(-5px);
+  animation: swaSlideRight var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
+}
+
+/* The physical frame of the shutter - 25mm series means sleek, slim frames! */
+.swa-shutter-frame {
+  position: absolute;
+  inset: 0;
+  border: 4px solid var(--swa-frame-color); /* Ultra slim profile */
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 5px rgba(0,0,0,0.4);
+}
+
+/* Glass */
+.swa-glass {
+  position: absolute;
+  inset: 4px; /* Matches the 4px border exactly */
+  background: rgba(0, 0, 0, var(--swa-glass-opacity)); /* Black tinted glass */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Glass Reflection */
+.swa-glass-reflection {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255, 0) 0%,
+    rgba(255,255,255, 0) 40%,
+    rgba(255,255,255, 0.4) 50%,
+    rgba(255,255,255, 0) 60%,
+    rgba(255,255,255, 0) 100%
+  );
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+
+@keyframes swaSlideLeft {
+  0% { transform: translateX(0) translateZ(5px); }
+  100% { transform: translateX(-100%) translateZ(5px); }
+}
+
+@keyframes swaSlideRight {
+  0% { transform: translateX(0) translateZ(-5px); }
+  100% { transform: translateX(100%) translateZ(-5px); }
+}
+
+@keyframes swaReflectLeft {
+  0%, 15% { transform: rotate(15deg) translateX(0%); opacity: 1; }
+  75%, 100% { transform: rotate(15deg) translateX(-50%); opacity: 0; }
+}
+
+@keyframes swaReflectRight {
+  0%, 15% { transform: rotate(15deg) translateX(0%); opacity: 1; }
+  75%, 100% { transform: rotate(15deg) translateX(50%); opacity: 0; }
+}
+
+.swa-shutter-left .swa-glass-reflection {
+  animation: swaReflectLeft var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
+}
+
+.swa-shutter-right .swa-glass-reflection {
+  animation: swaReflectRight var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
+}

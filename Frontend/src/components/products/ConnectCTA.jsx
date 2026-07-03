@@ -19,7 +19,7 @@ export const ConnectCTA = ({
               <Button variant="secondary">Connect With Us</Button>
             </Link>
             <Link to={ROUTES.CONNECT}>
-              <Button variant="outline" style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#fff' }}>Plan Your Visit</Button>
+              <Button variant="primary">Plan Your Visit</Button>
             </Link>
           </div>
         </div>

@@ -17,8 +17,8 @@ export const ProjectsConnectSection = () => {
             <Link to={ROUTES.CONNECT}>
               <Button variant="secondary">Connect With Us</Button>
             </Link>
-            <Link to={ROUTES.CONNECT} className="proj-connect-secondary-link">
-              Plan Your Visit →
+            <Link to={ROUTES.CONNECT}>
+              <Button variant="primary">Plan Your Visit</Button>
             </Link>
           </div>
         </div>

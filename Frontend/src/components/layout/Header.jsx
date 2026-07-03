@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { navigation } from '../../data/siteData';
 import { ROUTES } from '../../constants/routes';
@@ -9,9 +8,67 @@ import './Header.css';
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  
+  // 'centered' -> 'flying' -> 'done'
+  const [introState, setIntroState] = useState(isHomePage ? 'centered' : 'done');
+  const logoRef = useRef(null);
+  const [logoStyle, setLogoStyle] = useState({});
+
+  useEffect(() => {
+    if (!isHomePage) {
+      setIntroState('done');
+      return;
+    }
+
+    const handleFlight = () => setIntroState('flying');
+    const handleDone = () => setIntroState('done');
+
+    window.addEventListener('startLogoFlight', handleFlight);
+    window.addEventListener('homeIntroFinished', handleDone);
+
+    return () => {
+      window.removeEventListener('startLogoFlight', handleFlight);
+      window.removeEventListener('homeIntroFinished', handleDone);
+    };
+  }, [isHomePage]);
+
+  // FLIP animation calculation
+  useEffect(() => {
+    if (introState === 'centered' && logoRef.current) {
+      // Small timeout to ensure layout is calculated
+      const timer = setTimeout(() => {
+        if (!logoRef.current) return;
+        const rect = logoRef.current.getBoundingClientRect();
+        
+        // Native center of the logo in the header
+        const nativeCenterX = rect.left + rect.width / 2;
+        const nativeCenterY = rect.top + rect.height / 2;
+        
+        // Center of the screen
+        const screenCenterX = window.innerWidth / 2;
+        const screenCenterY = window.innerHeight / 2;
+        
+        // Delta to push it to the center
+        const deltaX = screenCenterX - nativeCenterX;
+        const deltaY = screenCenterY - nativeCenterY;
+        
+        setLogoStyle({
+          transform: `translate(${deltaX}px, ${deltaY}px) scale(2.5)`,
+          transition: 'none' // Snap to center instantly on mount
+        });
+      }, 50);
+      return () => clearTimeout(timer);
+    } else if (introState === 'flying') {
+      setLogoStyle({
+        transform: `translate(0px, 0px) scale(1)`,
+        transition: 'transform 1.5s cubic-bezier(0.25, 1, 0.5, 1)'
+      });
+    } else {
+      setLogoStyle({});
+    }
+  }, [introState]);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -56,35 +113,16 @@ export const Header = () => {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
-
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.style.overflow = '';
-      document.body.classList.remove('menu-open');
-    }
-    return () => {
-      document.body.style.overflow = '';
-      document.body.classList.remove('menu-open');
-    };
-  }, [isMobileMenuOpen]);
 
   return (
     <header className={`header ${isScrolled ? 'header-scrolled' : 'header-transparent'} ${isDarkBackground ? 'header-theme-dark' : 'header-theme-light'}`}>
       <div className="container header-container">
-        <Link to={ROUTES.HOME} className="logo">
+        <Link to={ROUTES.HOME} className="logo" ref={logoRef} style={{...logoStyle, pointerEvents: introState === 'centered' ? 'none' : 'auto'}}>
           <img src={isDarkBackground ? "/images/logo white.png" : "/images/logo.png"} alt="Rachana Aluminium Logo" className="logo-image" />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav">
+        {/* Horizontal Scrollable Navigation */}
+        <nav className="desktop-nav" style={{ opacity: introState === 'done' ? 1 : 0, transition: 'opacity 0.5s ease', pointerEvents: introState === 'done' ? 'auto' : 'none' }}>
           <ul className="nav-list">
             {navigation.map((link) => (
               <li key={link.name}>
@@ -103,45 +141,6 @@ export const Header = () => {
             </Link>
           </div>
         </nav>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="mobile-menu-toggle" 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Navigation Overlay */}
-        <div 
-          className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
-            <ul className="mobile-nav-list">
-              {navigation.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="mobile-nav-link"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link 
-                  to={ROUTES.CONNECT}
-                  className="mobile-nav-link"
-                  style={{ color: 'var(--accent-primary)' }}
-                >
-                  Connect With Us
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </header>
   );

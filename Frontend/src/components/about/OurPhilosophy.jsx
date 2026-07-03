@@ -52,7 +52,7 @@ export const OurPhilosophy = () => {
         <div className="our-phil-header">
           <h2 className="section-heading our-phil-heading">What We Believe</h2>
           <p className="our-phil-sub">
-            "We treat every project as if we were building it for ourselves."
+            "Eyes don't just see—they reveal a person's character. Likewise, windows don't just frame the outside world; they reflect the character of a home"
           </p>
         </div>
         <div className="our-phil-cards">

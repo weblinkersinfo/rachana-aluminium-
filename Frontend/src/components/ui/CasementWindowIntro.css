@@ -1,0 +1,132 @@
+/* CasementWindowIntro.css */
+
+.cwi-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: radial-gradient(circle at center, #ffffff 0%, #f0f0f0 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: cwiFadeOutOverlay 0.5s ease forwards 8s;
+}
+
+.cwi-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Typography Container */
+.cwi-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  /* Sequence:
+     0-1s: Fade in
+     1-2s: Hold
+     2-3s: Move up and scale down
+     3-8s: Hold top position
+  */
+  animation: cwiTextSequence 8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+
+.cwi-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.cwi-tagline {
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Window Container */
+.cwi-window-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Fade in at 2s-3s */
+  opacity: 0;
+  animation: cwiWindowFadeIn 1s ease forwards 2s;
+}
+
+/* Scale down the window for smaller screens to remain responsive */
+@media (max-width: 900px) {
+  .cwi-window-container {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+@media (max-width: 600px) {
+  .cwi-window-container {
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  .cwi-text-container {
+    margin-top: -20px;
+  }
+}
+
+
+/* Keyframes */
+
+@keyframes cwiTextSequence {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%) scale(1);
+  }
+  12.5% { /* 1 second (1/8 of 8s) */
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  25% { /* 2 seconds */
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  37.5%, 100% { /* 3 seconds -> end */
+    opacity: 1;
+    transform: translate(-50%, -220%) scale(0.7);
+  }
+}
+
+@keyframes cwiWindowFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes cwiFadeOutOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

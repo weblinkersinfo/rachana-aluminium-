@@ -24,7 +24,7 @@ export const PersonalAttention = () => {
 
             <div className="pa-quote">
               <p className="pa-quote-text">
-                "We treat every project as if we were building it for ourselves."
+                "Eyes don't just see—they reveal a person's character. Likewise, windows don't just frame the outside world; they reflect the character of a home"
               </p>
             </div>
           </div>

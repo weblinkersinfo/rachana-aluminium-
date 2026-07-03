@@ -35,7 +35,7 @@ export const aluminumSystemProducts = [
     imageStyle: { transform: 'scale(1.3)', objectPosition: 'center center' },
   },
   {
-    id: 'casement',
+    id: 'casement-window',
     title: 'Casement Windows',
     description: 'Clean and practical window systems offering ventilation and timeless design.',
     image: '/images/casement.jpg',

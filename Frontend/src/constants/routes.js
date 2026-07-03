@@ -9,5 +9,7 @@ export const ROUTES = {
   ABOUT: '/about',
 
   CONNECT: '/connect',
-  ALUMINUM: '/products/aluminum'
+  ALUMINUM: '/products/aluminum',
+  SLIDING_FOLDING: '/products/sliding-folding',
+  CASEMENT_WINDOW: '/products/casement-window'
 };

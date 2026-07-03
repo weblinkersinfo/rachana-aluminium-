@@ -21,8 +21,8 @@ export const WhyConnectCTA = () => {
             <Link to={ROUTES.CONNECT}>
               <Button variant="primary">Connect With Us</Button>
             </Link>
-            <Link to={ROUTES.CONNECT} className="wcta-secondary-link">
-              Plan Your Visit <ArrowRight size={16} />
+            <Link to={ROUTES.CONNECT}>
+              <Button variant="primary">Plan Your Visit</Button>
             </Link>
           </div>
         </div>

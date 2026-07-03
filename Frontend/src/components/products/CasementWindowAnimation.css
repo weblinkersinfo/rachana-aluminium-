@@ -1,0 +1,256 @@
+/* CasementWindowAnimation.css */
+
+.cwa-container {
+  width: var(--cwa-width);
+  height: var(--cwa-height);
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Soft ambient background for the studio feel */
+  background: radial-gradient(circle at center, #f5f5f5 0%, #e0e0e0 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.cwa-container.cwa-fullscreen {
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.cwa-container.cwa-fullscreen .cwa-scene {
+  width: 100%;
+  height: 100%;
+}
+
+.cwa-container.cwa-fullscreen .cwa-outer-frame {
+  background: transparent;
+  border-width: 12px;
+}
+
+.cwa-container.cwa-fullscreen .cwa-glass {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.cwa-scene {
+  width: 80%;
+  height: 80%;
+  perspective: 1500px; /* Strong perspective for depth */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Outer Window Frame */
+.cwa-outer-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #fff; /* Wall color showing through if we want, but it's a window so let's make it transparent to the background */
+  border: 18px solid var(--cwa-frame-color);
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.3), /* Outer shadow */
+    inset 0 10px 20px rgba(0,0,0,0.5); /* Inner shadow for depth */
+  border-radius: 4px;
+  transform-style: preserve-3d;
+}
+
+/* Creates a fake 3D inner reveal (the wall depth) */
+.cwa-frame-depth {
+  position: absolute;
+  background: #111; /* Darker shade of frame */
+}
+.cwa-frame-depth.top, .cwa-frame-depth.bottom {
+  left: 0; right: 0; height: 10px;
+}
+.cwa-frame-depth.left, .cwa-frame-depth.right {
+  top: 0; bottom: 0; width: 10px;
+}
+.cwa-frame-depth.top { top: 0; transform-origin: top; transform: rotateX(-90deg); }
+.cwa-frame-depth.bottom { bottom: 0; transform-origin: bottom; transform: rotateX(90deg); }
+.cwa-frame-depth.left { left: 0; transform-origin: left; transform: rotateY(90deg); }
+.cwa-frame-depth.right { right: 0; transform-origin: right; transform: rotateY(-90deg); }
+
+/* Shutters wrapper */
+.cwa-shutters-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transform-style: preserve-3d;
+  /* Push slightly back into the frame */
+  transform: translateZ(-5px);
+}
+
+/* Individual Shutters */
+.cwa-shutter {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cwa-shutter-left {
+  transform-origin: left center;
+  animation: cwaSwingLeft var(--cwa-duration) cubic-bezier(0.4, 0, 0.2, 1) var(--cwa-delay) var(--cwa-iteration) forwards var(--cwa-play-state);
+}
+
+.cwa-shutter-right {
+  transform-origin: right center;
+  animation: cwaSwingRight var(--cwa-duration) cubic-bezier(0.4, 0, 0.2, 1) var(--cwa-delay) var(--cwa-iteration) forwards var(--cwa-play-state);
+}
+
+/* The physical frame of the shutter */
+.cwa-shutter-frame {
+  position: absolute;
+  inset: 0;
+  border: 12px solid var(--cwa-frame-color);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 5px rgba(0,0,0,0.4);
+  /* Make the middle meeting point look like they overlap or sit flush */
+}
+.cwa-shutter-left .cwa-shutter-frame {
+  border-right-width: 8px; /* Slightly thinner where they meet */
+}
+.cwa-shutter-right .cwa-shutter-frame {
+  border-left-width: 8px;
+}
+
+/* Glass */
+.cwa-glass {
+  position: absolute;
+  inset: 12px;
+  background: rgba(255, 255, 255, var(--cwa-glass-opacity));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.cwa-shutter-left .cwa-glass { right: 8px; }
+.cwa-shutter-right .cwa-glass { left: 8px; }
+
+/* Glass Reflection */
+.cwa-glass-reflection {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255, 0) 0%,
+    rgba(255,255,255, 0) 40%,
+    rgba(255,255,255, 0.3) 50%,
+    rgba(255,255,255, 0) 60%,
+    rgba(255,255,255, 0) 100%
+  );
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+/* Handles */
+.cwa-handle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateZ(10px); /* Lifted off the glass slightly */
+  width: 14px;
+  height: 120px;
+  transform-style: preserve-3d;
+}
+
+.cwa-handle-left {
+  right: 18px;
+}
+
+.cwa-handle-right {
+  left: 18px;
+}
+
+.cwa-handle-base {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #333; /* Matte black handle */
+  border-radius: 3px;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+  background: linear-gradient(90deg, #2a2a2a, #444, #2a2a2a);
+}
+
+.cwa-handle-grip {
+  position: absolute;
+  width: 10px;
+  height: 90px;
+  top: 15px;
+  left: 2px;
+  background: #222;
+  border-radius: 2px;
+  transform: translateZ(5px);
+}
+
+/* Hinges (Visual details on the outer edge) */
+.cwa-hinge {
+  position: absolute;
+  width: 6px;
+  height: 40px;
+  background: #111;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.cwa-hinge.left { left: -3px; }
+.cwa-hinge.right { right: -3px; }
+.cwa-hinge.top { top: 15%; }
+.cwa-hinge.bottom { bottom: 15%; }
+
+/* --- ANIMATION KEYFRAMES --- */
+/*
+ Sequence:
+ 0-5%: Pause closed
+ 15-40%: Left opens
+ 25-50%: Right opens (delay)
+ 50-70%: Pause fully open
+ 70-95%: Both close
+ 95-100%: Pause closed
+*/
+
+@keyframes cwaSwingLeft {
+  0%, 10% {
+    transform: rotateY(0deg);
+  }
+  70%, 100% {
+    transform: rotateY(var(--cwa-angle-left));
+  }
+}
+
+@keyframes cwaSwingRight {
+  0%, 25% { /* Starts opening slightly after left */
+    transform: rotateY(0deg);
+  }
+  85%, 100% {
+    transform: rotateY(var(--cwa-angle-right));
+  }
+}
+
+/* Add slight reflection movement based on shutter rotation to fake real lighting */
+@keyframes cwaReflectLeft {
+  0%, 10% { transform: rotate(15deg) translateX(0%); opacity: 1; }
+  70%, 100% { transform: rotate(15deg) translateX(-30%); opacity: 0; }
+}
+
+@keyframes cwaReflectRight {
+  0%, 25% { transform: rotate(15deg) translateX(0%); opacity: 1; }
+  85%, 100% { transform: rotate(15deg) translateX(30%); opacity: 0; }
+}
+
+.cwa-shutter-left .cwa-glass-reflection {
+  animation: cwaReflectLeft var(--cwa-duration) cubic-bezier(0.4, 0, 0.2, 1) var(--cwa-delay) var(--cwa-iteration) forwards var(--cwa-play-state);
+}
+
+.cwa-shutter-right .cwa-glass-reflection {
+  animation: cwaReflectRight var(--cwa-duration) cubic-bezier(0.4, 0, 0.2, 1) var(--cwa-delay) var(--cwa-iteration) forwards var(--cwa-play-state);
+}

@@ -56,8 +56,7 @@
   display: flex;
   align-items: center;
   transition: opacity var(--transition-medium);
-  position: relative;
-  z-index: 101; /* Stay above mobile menu overlay */
+  flex-shrink: 0;
 }
 
 .logo:hover {
@@ -77,9 +76,11 @@
 }
 
 .desktop-nav {
-  display: none;
+  display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .nav-list {
@@ -125,72 +126,36 @@
   font-size: 0.875rem !important;
 }
 
-.mobile-menu-toggle {
-  display: block;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 101;
-  transition: color var(--transition-medium);
-}
-
-.mobile-nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  padding-top: 100px; /* Space for the header */
-  padding-right: var(--space-md);
-  padding-left: var(--space-md);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity var(--transition-medium), transform var(--transition-medium);
-}
-
-.mobile-nav-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateY(0);
-}
-
-.mobile-nav-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  text-align: right;
-  width: 100%;
-}
-
-.mobile-nav-link {
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: var(--font-heading);
-  transition: color var(--transition-fast);
-  display: block;
-}
-
-.mobile-nav-link:hover {
-  color: var(--accent-primary);
-}
-
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
+  .header-container {
+    gap: 16px;
+  }
   .desktop-nav {
-    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  .mobile-menu-toggle {
+  .desktop-nav::-webkit-scrollbar {
     display: none;
   }
-  .mobile-nav-overlay {
-    display: none;
+  .nav-list {
+    gap: 16px;
+    flex-shrink: 0;
+    margin-left: auto; /* Pushes the menu towards the right side */
+  }
+  .nav-link {
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+  .header-cta {
+    flex-shrink: 0;
+    margin-left: 8px;
+    padding-right: 16px; /* Space at end of scroll */
+  }
+  .header-btn {
+    padding: 6px 16px !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
   }
 }

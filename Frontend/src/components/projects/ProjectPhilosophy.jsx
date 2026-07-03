@@ -25,7 +25,7 @@ export const ProjectPhilosophy = () => {
               We believe every home, commercial building, and institution carries its own purpose and emotions. Every project receives our full attention, careful planning, and commitment to quality.
             </p>
             <blockquote className="phil-quote">
-              "We treat every project as if we were building it for ourselves."
+              "Eyes don't just see—they reveal a person's character. Likewise, windows don't just frame the outside world; they reflect the character of a home"
             </blockquote>
           </div>
         </div>

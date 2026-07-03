@@ -1,0 +1,36 @@
+/* src/pages/CasementWindow.css */
+@import './SlidingFolding.css';
+
+.casement-window-page .casement-window-img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  pointer-events: auto;
+}
+
+@media (min-width: 992px) {
+  .casement-window-page .brochure-middle-flex {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .casement-window-page .brochure-system-specs {
+    flex: 1;
+    padding-top: 50px;
+    padding-right: calc(var(--space-xl) * 2);
+  }
+  .casement-window-page .brochure-image-wrap {
+    position: absolute;
+    right: 0;
+    top: -100px; 
+    width: 45vw; 
+    justify-content: flex-end;
+    z-index: 5;
+    padding-right: var(--space-xl);
+  }
+  .casement-window-page .brochure-bottom-grid {
+    gap: calc(var(--space-xl) * 3);
+  }
+}

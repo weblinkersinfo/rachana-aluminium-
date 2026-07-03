@@ -4,6 +4,7 @@ import { ROUTES } from './constants/routes';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { HomePageIntro } from './components/ui/HomePageIntro';
 import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import { SystemWindows } from './pages/SystemWindows';
@@ -15,6 +16,8 @@ import { AluminumSystem } from './pages/AluminumSystem';
 import { Series25mm } from './pages/Series25mm';
 import { Series29mm } from './pages/Series29mm';
 import { Series36mm } from './pages/Series36mm';
+import { SlidingFolding } from './pages/SlidingFolding';
+import { CasementWindow } from './pages/CasementWindow';
 
 // Placeholder pages for routing
 const Placeholder = ({ title }) => (
@@ -26,6 +29,7 @@ const Placeholder = ({ title }) => (
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
+      <HomePageIntro />
       <ScrollToTop />
       <Header />
       <Routes>
@@ -38,8 +42,9 @@ export const AppRoutes = () => {
         <Route path={ROUTES.SERIES_36MM} element={<Series36mm />} />
         <Route path={ROUTES.PROJECTS} element={<Projects />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
-
         <Route path={ROUTES.CONNECT} element={<Connect />} />
+        <Route path={ROUTES.SLIDING_FOLDING} element={<SlidingFolding />} />
+        <Route path={ROUTES.CASEMENT_WINDOW} element={<CasementWindow />} />
       </Routes>
       <Footer />
     </BrowserRouter>

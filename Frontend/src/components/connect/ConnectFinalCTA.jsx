@@ -16,8 +16,8 @@ export const ConnectFinalCTA = () => {
             Every project deserves thoughtful decisions and personal attention. We'd be delighted to understand your requirements and explore the possibilities together.
           </p>
           <div className="cfcta-actions">
-            <a href="#visit-showroom" className="cfcta-secondary-link">
-              Plan Your Visit <ArrowRight size={16} />
+            <a href="#visit-showroom">
+              <Button variant="primary">Plan Your Visit</Button>
             </a>
           </div>
         </div>

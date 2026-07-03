@@ -1,0 +1,123 @@
+/* HomePageIntro.css */
+
+.hpi-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.hpi-overlay.is-opening {
+  pointer-events: none;
+  animation: hpiFadeOutOverlay 0.5s ease forwards 5s; /* 5s after click, fade the entire overlay */
+}
+
+.hpi-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Clickable Logo Trigger */
+.hpi-logo-trigger {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: hpiPulse 2s infinite;
+}
+
+.hpi-logo-trigger:hover {
+  transform: scale(1.05);
+}
+
+.hpi-logo-trigger.fade-out {
+  pointer-events: none;
+}
+
+.hpi-logo-trigger.fade-out .hpi-logo {
+  animation: hpiLogoFlight 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hpi-logo-trigger.fade-out .hpi-click-text {
+  animation: hpiTextFade 0.5s ease forwards;
+}
+
+.hpi-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.hpi-click-text {
+  color: #fff;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  opacity: 0.9;
+}
+
+/* Window Container */
+.hpi-window-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* Block clicks only when opening */
+  opacity: 1;
+}
+
+.is-opening .hpi-window-container {
+  pointer-events: auto;
+}
+
+/* Keyframes */
+@keyframes hpiPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes hpiLogoFlight {
+  0% { 
+    transform: translate(0px, 0px) scale(1); 
+  }
+  100% { 
+    transform: translate(var(--logo-delta-x, -40vw), var(--logo-delta-y, -43vh)) scale(var(--logo-scale, 0.65)); 
+  }
+}
+
+@keyframes hpiTextFade {
+  to { opacity: 0; }
+}
+
+@keyframes hpiFadeOutOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

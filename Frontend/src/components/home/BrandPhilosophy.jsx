@@ -13,7 +13,7 @@ export const BrandPhilosophy = () => {
       <div className="container-text center-text">
         <h2 className="display-heading philosophy-title reveal-stagger">Quality at its Best.</h2>
         <p className="philosophy-statement subheading reveal-stagger">
-          We treat every project as if we were building it for ourselves.
+          Eyes don't just see—they reveal a person's character. Likewise, windows don't just frame the outside world; they reflect the character of a home.
         </p>
       </div>
     </section>
