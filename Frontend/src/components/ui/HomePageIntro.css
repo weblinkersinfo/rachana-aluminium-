@@ -38,7 +38,6 @@
   align-items: center;
   cursor: pointer;
   transition: transform 0.3s ease;
-  animation: hpiPulse 2s infinite;
 }
 
 .hpi-logo-trigger:hover {
@@ -67,7 +66,7 @@
 .hpi-click-text {
   color: #fff;
   font-family: var(--font-secondary);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   letter-spacing: 0.15em;
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);

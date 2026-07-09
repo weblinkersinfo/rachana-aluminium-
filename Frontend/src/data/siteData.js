@@ -28,5 +28,5 @@ export const contactInfo = {
     { name: 'Avinash Latwade', number: '+91 94207 76484', tel: '+919420776484' },
     { name: 'Pravin Latwade', number: '+91 90497 97772', tel: '+919049797772' }
   ],
-  email: 'info@rachanaaluminium.com'
+  email: 'rachana.alupvc@gmail.com'
 };

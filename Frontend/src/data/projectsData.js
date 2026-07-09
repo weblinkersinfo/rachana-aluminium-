@@ -67,9 +67,9 @@ export const projectsData = [
     description: 'A contemporary four-bedroom residence in Mumbai featuring minimal aluminium profiles throughout. The project emphasized visual lightness and clean sightlines from every room.',
     products: ['System Windows – 25mm Series', 'Casement Windows', 'Pleated Mesh'],
     images: [
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
+      '/images/mumbai banglow.jpg',
+      '/images/mumbai banglow 2.jpg',
+      '/images/sliding folding door with grill.jpg',
     ],
   },
   {

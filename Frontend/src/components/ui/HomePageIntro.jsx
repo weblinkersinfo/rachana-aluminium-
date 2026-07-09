@@ -38,14 +38,23 @@ export const HomePageIntro = () => {
     // We don't really need to clear this timeout because it will unmount anyway, but it's good practice.
   };
 
+  useEffect(() => {
+    const onTrigger = () => {
+      if (!isOpening) {
+        handleStartAnimation();
+      }
+    };
+    window.addEventListener('triggerHomeAnimation', onTrigger);
+    return () => window.removeEventListener('triggerHomeAnimation', onTrigger);
+  }, [isOpening]);
+
   if (!shouldPlay || isHidden) return null;
 
   return (
     <div className={`hpi-overlay ${isOpening ? 'is-opening' : ''}`} onClick={!isOpening ? handleStartAnimation : undefined}>
       <div className="hpi-content">
         
-        {/* Clickable Trigger (Logo is now managed by Header) */}
-        <div className={`hpi-logo-trigger ${isOpening ? 'fade-out' : ''}`} style={{ cursor: 'pointer', marginTop: '120px' }}>
+        <div className={`hpi-logo-trigger ${isOpening ? 'fade-out' : ''}`} style={{ cursor: 'pointer', marginTop: '180px' }}>
           <span className="hpi-click-text">CLICK HERE</span>
         </div>
 

@@ -14,7 +14,7 @@ export const SystemWindows = () => {
         <div className="sys-hero-overlay"></div>
         <div className="container sys-hero-content reveal-stagger">
           <span className="sys-badge">Premium Collection</span>
-          <h1 className="display-heading">The Pinnacle of<br/>Window Engineering</h1>
+          <h1 className="display-heading">The Pinnacle of<br />Window Engineering</h1>
           <p className="sys-hero-subtitle">
             Uncompromising aesthetics meeting relentless durability. Explore our signature series designed for architectural excellence.
           </p>
@@ -27,7 +27,7 @@ export const SystemWindows = () => {
           <div className="sys-series-grid">
             <div className="sys-image-col reveal-left">
               <div className="sys-image-wrapper">
-                <img src="/images/sys_25mm.png" alt="25mm System Window" className="sys-series-img" />
+                <img src="/images/25 mm window.jpg" alt="25mm System Window" className="sys-series-img" />
                 <div className="sys-image-accent"></div>
               </div>
             </div>

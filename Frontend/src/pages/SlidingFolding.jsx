@@ -19,7 +19,7 @@ export const SlidingFolding = () => {
       setShowAnimation(false);
       document.body.style.overflow = ''; // Re-enable scrolling
     }, 6500);
-    
+
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = ''; // Ensure scrolling is re-enabled if unmounted
@@ -36,7 +36,7 @@ export const SlidingFolding = () => {
       {/* Top Section - Gray Background */}
       <div className="brochure-top">
         <div className="brochure-container">
-          
+
           <Link to={ROUTES.ALUMINUM} className="brochure-back-link">
             <ArrowLeft size={16} /> Back to Aluminum Systems
           </Link>
@@ -84,7 +84,7 @@ export const SlidingFolding = () => {
           </div>
 
           <div className="brochure-image-wrap">
-            <img src="/images/sliding folding door.png" alt="Sliding Folding Window" className="sliding-folding-img" />
+            <img src="/images/sliding folding door with grill.jpg" alt="Sliding Folding Window" className="sliding-folding-img" />
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ export const SlidingFolding = () => {
       {/* Bottom Section - White Background */}
       <div className="brochure-bottom">
         <div className="brochure-container brochure-bottom-grid">
-          
+
           {/* Left Column: Seamless Integration */}
           <div className="brochure-waterproof reveal-left">
             <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2294?auto=format&fit=crop&w=800&q=80" alt="Seamless Integration" className="brochure-waterproof-img" />
@@ -105,45 +105,45 @@ export const SlidingFolding = () => {
           {/* Right Column: Specs */}
           <div className="brochure-specs-wrapper reveal-right">
             <h2 className="brochure-section-title">SECTION DETAIL</h2>
-            
+
             <div className="brochure-specs-grid">
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">System Type</span>
-              <span className="brochure-spec-value">Top Hung / Bottom Rolling</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Max Shutter Width</span>
-              <span className="brochure-spec-value">1200mm</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Max Shutter Height</span>
-              <span className="brochure-spec-value">3000mm</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Max Weight / Panel</span>
-              <span className="brochure-spec-value">120 Kg</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Glass Thickness</span>
-              <span className="brochure-spec-value">6mm to 32mm</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Hardware Type</span>
-              <span className="brochure-spec-value">European Standard</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Configurations</span>
-              <span className="brochure-spec-value highlight">Customizable</span>
-            </div>
-            <div className="brochure-spec-item">
-              <span className="brochure-spec-label">Low Threshold</span>
-              <span className="brochure-spec-value highlight">Available</span>
-            </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">System Type</span>
+                <span className="brochure-spec-value">Top Hung / Bottom Rolling</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Max Shutter Width</span>
+                <span className="brochure-spec-value">1200mm</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Max Shutter Height</span>
+                <span className="brochure-spec-value">3000mm</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Max Weight / Panel</span>
+                <span className="brochure-spec-value">120 Kg</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Glass Thickness</span>
+                <span className="brochure-spec-value">8mm to 30mm</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Hardware Type</span>
+                <span className="brochure-spec-value">European Standard</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Configurations</span>
+                <span className="brochure-spec-value highlight">Customizable</span>
+              </div>
+              <div className="brochure-spec-item">
+                <span className="brochure-spec-label">Low Threshold</span>
+                <span className="brochure-spec-value highlight">Available</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <ConnectCTA />
     </main>
   );

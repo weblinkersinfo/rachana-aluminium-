@@ -117,7 +117,18 @@ export const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'header-scrolled' : 'header-transparent'} ${isDarkBackground ? 'header-theme-dark' : 'header-theme-light'}`}>
       <div className="container header-container">
-        <Link to={ROUTES.HOME} className="logo" ref={logoRef} style={{...logoStyle, pointerEvents: introState === 'centered' ? 'none' : 'auto'}}>
+        <Link 
+          to={ROUTES.HOME} 
+          className="logo" 
+          ref={logoRef} 
+          style={logoStyle}
+          onClick={(e) => {
+            if (introState === 'centered') {
+              e.preventDefault();
+              window.dispatchEvent(new Event('triggerHomeAnimation'));
+            }
+          }}
+        >
           <img src={isDarkBackground ? "/images/logo white.png" : "/images/logo.png"} alt="Rachana Aluminium Logo" className="logo-image" />
         </Link>
 
