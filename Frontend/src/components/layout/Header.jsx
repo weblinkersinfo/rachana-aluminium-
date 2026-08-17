@@ -128,6 +128,17 @@ export const Header = () => {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <header className={`header ${isScrolled ? 'header-scrolled' : 'header-transparent'} ${isDarkBackground ? 'header-theme-dark' : 'header-theme-light'}`}>
@@ -138,6 +149,7 @@ export const Header = () => {
           ref={logoRef} 
           style={logoStyle}
           onClick={(e) => {
+            setIsMobileMenuOpen(false);
             if (introState === 'centered') {
               e.preventDefault();
               window.dispatchEvent(new Event('triggerHomeAnimation'));
@@ -148,17 +160,54 @@ export const Header = () => {
         </Link>
 
         {/* Hamburger Toggle */}
-        <button 
-          className={`mobile-menu-toggle ${isDarkBackground && !isScrolled && !isMobileMenuOpen ? 'text-inverse' : ''}`} 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{ opacity: introState === 'done' ? 1 : 0, pointerEvents: introState === 'done' ? 'auto' : 'none' }}
-          aria-label="Toggle mobile menu"
-        >
-          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
+        {!isMobileMenuOpen && (
+          <button 
+            className={`mobile-menu-toggle ${isDarkBackground && !isScrolled ? 'text-inverse' : ''}`} 
+            onClick={() => setIsMobileMenuOpen(true)}
+            style={{ opacity: introState === 'done' ? 1 : 0, pointerEvents: introState === 'done' ? 'auto' : 'none' }}
+            aria-label="Open mobile menu"
+          >
+            <Menu size={32} />
+          </button>
+        )}
 
-        {/* Navigation */}
-        <nav className={`desktop-nav ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`} style={{ opacity: introState === 'done' ? 1 : 0, transition: 'opacity 0.5s ease', pointerEvents: introState === 'done' ? 'auto' : 'none' }}>
+        {/* --- THE MOBILE MENU --- */}
+        {isMobileMenuOpen && (
+          <>
+            {/* 1. The Blurred Overlay (Blocks clicks to the website) */}
+            <div 
+              className="menu-overlay" 
+              onClick={() => setIsMobileMenuOpen(false)} 
+            ></div>
+
+            {/* 2. The White Box Drawer */}
+            <nav className="mobile-white-box">
+              <button 
+                className="close-btn" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <X size={28} />
+              </button>
+
+              <ul className="mobile-links">
+                {navigation.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className={location.pathname === link.path ? 'active' : ''}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </>
+        )}
+
+        {/* Desktop Navigation */}
+        <nav className={`desktop-nav ${introState === 'done' ? 'intro-done' : ''}`}>
           <ul className="nav-list">
             {navigation.map((link) => (
               <li key={link.name}>
@@ -171,11 +220,6 @@ export const Header = () => {
               </li>
             ))}
           </ul>
-          <div className="header-cta">
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="primary" className="header-btn">Connect With Us</Button>
-            </Link>
-          </div>
         </nav>
       </div>
     </header>

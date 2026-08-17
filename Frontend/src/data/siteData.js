@@ -5,7 +5,7 @@ export const navigation = [
   { name: 'Products', path: ROUTES.PRODUCTS },
   { name: 'Projects', path: ROUTES.PROJECTS },
   { name: 'About Us', path: ROUTES.ABOUT },
-
+  { name: 'Connect', path: ROUTES.CONNECT },
 ];
 
 export const statistics = [

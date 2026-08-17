@@ -1,40 +1,160 @@
 /* src/pages/SlidingFolding.css */
 
+/* =========================================
+   MOBILE-FIRST UI FIXES 
+========================================= */
+
+/* 1. Prevent Overlap with Main Navbar */
+.brochure-nav-bar {
+  padding: 16px 20px;
+  background-color: #f9f9f9;
+  /* Assuming your main header is around 70px tall. This pushes the back button down so they don't overlap */
+  margin-top: 70px;
+  display: block;
+}
+
+.brochure-back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 2. Fix Container Padding & Typography */
+.brochure-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.brochure-description p {
+  line-height: 1.6;
+  /* Adds breathing room between lines */
+  color: #4a4a4a;
+  /* Softer gray for readability */
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+/* 3. Force Layout Order on Mobile (Image goes above text) */
+.brochure-header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.brochure-header .brochure-brand {
+  order: 1;
+  /* Title first */
+  margin-bottom: 24px;
+}
+
+.brochure-header .brochure-image-wrap {
+  order: 2;
+  /* Image second */
+  position: relative !important;
+  /* Overrides any desktop absolute positioning */
+  width: 100% !important;
+  margin-bottom: 24px;
+  top: 0 !important;
+}
+
+.brochure-header .brochure-description {
+  order: 3;
+  /* Paragraphs third */
+}
+
+/* Ensure the image looks good */
 .sliding-folding-page .sliding-folding-img {
   width: 100%;
   max-width: 900px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   pointer-events: auto;
+  display: block;
 }
 
+/* 4. Format the Specs List with Checkmarks */
+.brochure-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.brochure-list li {
+  display: flex;
+  align-items: flex-start;
+  /* Keeps the checkmark at the top if text wraps */
+  gap: 12px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  font-size: 15px;
+  color: #333;
+}
+
+/* 5. Prevent bottom cutoff from your new sticky action bar */
+.sliding-folding-page {
+  padding-bottom: 100px;
+}
+
+
+/* =========================================
+   DESKTOP OVERRIDES (min-width: 992px)
+========================================= */
 @media (min-width: 992px) {
+  .brochure-header {
+    flex-direction: row;
+    /* Resets to row for desktop */
+    position: relative;
+  }
+
+  /* Reset the flex ordering for desktop so it matches your original layout */
+  .brochure-header .brochure-brand {
+    order: unset;
+    margin-bottom: 0;
+    width: 50%;
+  }
+
+  .brochure-header .brochure-description {
+    order: unset;
+    width: 50%;
+  }
+
+  .brochure-header .brochure-image-wrap {
+    order: unset;
+    position: absolute !important;
+    right: 0;
+    top: -100px !important;
+    width: 45vw !important;
+    justify-content: flex-end;
+    z-index: 5;
+    padding-right: var(--space-xl);
+    margin-bottom: 0;
+  }
+
   .sliding-folding-page .brochure-middle-flex {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
+
   .sliding-folding-page .brochure-system-specs {
     flex: 1;
     padding-top: 50px;
-    padding-right: calc(var(--space-xl) * 2); /* Increased spacing for middle section */
+    padding-right: calc(var(--space-xl) * 2);
   }
-  .sliding-folding-page .brochure-image-wrap {
-    position: absolute;
-    right: 0;
-    top: -100px; 
-    width: 45vw; 
-    justify-content: flex-end;
-    z-index: 5;
-    padding-right: var(--space-xl);
-  }
+
   .sliding-folding-page .brochure-bottom-grid {
-    gap: calc(var(--space-xl) * 3); /* Increased spacing for bottom section details */
+    gap: calc(var(--space-xl) * 3);
   }
 }
 
-/* Folding Animation Overlay */
+/* =========================================
+   ANIMATION & SYSTEM OVERLAYS
+========================================= */
 .folding-overlay {
   position: fixed;
   top: 0;
@@ -45,7 +165,6 @@
   pointer-events: none;
 }
 
-/* The Nested Loader System */
 .loader-v-system {
   position: absolute;
   inset: 0;
@@ -60,10 +179,33 @@
   will-change: transform;
 }
 
-.loader-p4 { width: 25%; right: 0; top: 0; animation: loader-p4 6s cubic-bezier(0.5, 0, 0.4, 1) forwards; }
-.loader-p3 { width: 100%; right: 100%; top: 0; animation: loader-p3 6s cubic-bezier(0.5, 0, 0.4, 1) forwards; }
-.loader-p2 { width: 100%; right: 100%; top: 0; animation: loader-p2 6s cubic-bezier(0.5, 0, 0.4, 1) forwards; }
-.loader-p1 { width: 100%; right: 100%; top: 0; animation: loader-p1 6s cubic-bezier(0.5, 0, 0.4, 1) forwards; }
+.loader-p4 {
+  width: 25%;
+  right: 0;
+  top: 0;
+  animation: loader-p4 6s cubic-bezier(0.5, 0, 0.4, 1) forwards;
+}
+
+.loader-p3 {
+  width: 100%;
+  right: 100%;
+  top: 0;
+  animation: loader-p3 6s cubic-bezier(0.5, 0, 0.4, 1) forwards;
+}
+
+.loader-p2 {
+  width: 100%;
+  right: 100%;
+  top: 0;
+  animation: loader-p2 6s cubic-bezier(0.5, 0, 0.4, 1) forwards;
+}
+
+.loader-p1 {
+  width: 100%;
+  right: 100%;
+  top: 0;
+  animation: loader-p1 6s cubic-bezier(0.5, 0, 0.4, 1) forwards;
+}
 
 .loader-visual {
   position: absolute;
@@ -72,42 +214,83 @@
   border: 12px solid #1a1a1a;
   background: rgba(26, 26, 26, 0.3);
   backdrop-filter: blur(15px);
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.1), 5px 5px 20px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1), 5px 5px 20px rgba(0, 0, 0, 0.6);
 }
 
 .loader-visual::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.05) 100%);
   pointer-events: none;
 }
 
-.loader-p4 > .loader-visual { transform: translateZ(2px); }
-.loader-p3 > .loader-visual { transform: translateZ(-2px); }
-.loader-p2 > .loader-visual { transform: translateZ(2px); }
-.loader-p1 > .loader-visual { transform: translateZ(-2px); }
-
-@keyframes loader-p4 { 
-  0%, 33% { transform: rotateY(0deg); } 
-  75%, 100% { transform: rotateY(85deg); } 
-}
-@keyframes loader-p3 { 
-  0%, 33% { transform: rotateY(0deg); } 
-  75%, 100% { transform: rotateY(-170deg); } 
-}
-@keyframes loader-p2 { 
-  0% { transform: rotateY(0deg); } 
-  33% { transform: rotateY(85deg); } 
-  75%, 100% { transform: rotateY(170deg); } 
-}
-@keyframes loader-p1 { 
-  0% { transform: rotateY(0deg); } 
-  33%, 100% { transform: rotateY(-170deg); } 
+.loader-p4>.loader-visual {
+  transform: translateZ(2px);
 }
 
-/* We reuse most styles from Series25mm.css by using the .brochure-page classes */
-/* If Series25mm.css is not globally imported, we should import it here or copy standard styles. */
-/* Wait, Series25mm.css is imported in Series25mm.jsx, which means it might not be active everywhere. 
-   Let's import it here as well for safety, or just copy the necessary parts. */
+.loader-p3>.loader-visual {
+  transform: translateZ(-2px);
+}
+
+.loader-p2>.loader-visual {
+  transform: translateZ(2px);
+}
+
+.loader-p1>.loader-visual {
+  transform: translateZ(-2px);
+}
+
+@keyframes loader-p4 {
+
+  0%,
+  33% {
+    transform: rotateY(0deg);
+  }
+
+  75%,
+  100% {
+    transform: rotateY(85deg);
+  }
+}
+
+@keyframes loader-p3 {
+
+  0%,
+  33% {
+    transform: rotateY(0deg);
+  }
+
+  75%,
+  100% {
+    transform: rotateY(-170deg);
+  }
+}
+
+@keyframes loader-p2 {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  33% {
+    transform: rotateY(85deg);
+  }
+
+  75%,
+  100% {
+    transform: rotateY(170deg);
+  }
+}
+
+@keyframes loader-p1 {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  33%,
+  100% {
+    transform: rotateY(-170deg);
+  }
+}
+
 @import './Series25mm.css';

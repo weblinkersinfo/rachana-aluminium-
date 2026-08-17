@@ -13,13 +13,7 @@ export const FeaturedProjects = () => {
       ref={ref} 
       className={`featured-projects section-padding bg-primary reveal ${isRevealed ? 'is-revealed' : ''}`}
     >
-      <div className="container">
-        <SectionHeader 
-          eyebrow="Selected Works" 
-          title="Proof of Precision." 
-          supportingText="A glimpse into the spaces we've transformed across the region."
-        />
-        
+      <div className="container" style={{ paddingTop: '20px' }}>
         <div className="projects-grid">
           {featuredProjects.map((project) => (
             <div key={project.id} className="reveal-stagger">

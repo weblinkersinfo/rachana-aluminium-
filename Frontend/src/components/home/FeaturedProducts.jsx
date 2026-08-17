@@ -13,13 +13,7 @@ export const FeaturedProducts = () => {
       ref={ref} 
       className={`featured-products section-padding bg-secondary reveal ${isRevealed ? 'is-revealed' : ''}`}
     >
-      <div className="container">
-        <SectionHeader 
-          eyebrow="Our Collections" 
-          title="Engineered for Excellence." 
-          supportingText="Explore our range of premium architectural aluminium and uPVC solutions."
-        />
-        
+      <div className="container" style={{ paddingTop: '20px' }}>
         <div className="products-grid">
           {featuredProducts.map((product) => (
             <div key={product.id} className="reveal-stagger">

@@ -8,6 +8,7 @@
 
 @media (max-width: 768px) {
   .home-footer-sections {
-    background-size: cover; /* On mobile, 100% 100% squishes it horribly */
+    background-size: cover;
+    /* On mobile, 100% 100% squishes it horribly */
   }
 }

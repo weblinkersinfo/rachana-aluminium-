@@ -34,11 +34,29 @@
 }
 
 .hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 24px; /* This is critical to stop the overlapping */
+  padding: 40px 20px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
   z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
   animation: fadeUp 1s ease-out forwards;
+}
+
+/* Ensure the text and buttons don't have weird absolute positioning */
+.hero-content h1, 
+.hero-content h2, 
+.hero-content p, 
+.hero-content button, 
+.hero-content a {
+  position: relative !important; 
+  margin: 0 !important; /* Let the gap handle the spacing */
 }
 
 .hero-supporting-text {

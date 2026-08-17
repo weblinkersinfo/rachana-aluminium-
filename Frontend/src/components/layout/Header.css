@@ -81,6 +81,14 @@
   gap: var(--space-md);
   flex: 1;
   justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.desktop-nav.intro-done {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-list {
@@ -142,44 +150,70 @@
     margin-left: auto;
   }
 
+  /* Hide the desktop nav entirely on mobile */
   .desktop-nav {
+    display: none !important;
+  }
+
+  /* THE INOPERABLE BACKGROUND SHIELD */
+  .menu-overlay {
     position: fixed;
-    inset: 0;
-    background-color: var(--bg-dark);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Darkens the website */
+    backdrop-filter: blur(5px); /* Blurs the website */
+    z-index: 999; /* Places it on top of the website */
+    cursor: pointer;
+  }
+
+  /* THE WHITE NAVBAR BOX */
+  .mobile-white-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%; /* Takes up just over half the screen */
+    max-width: 300px;
+    height: 100vh;
+    background-color: #ffffff; /* Solid white box */
+    z-index: 1000; /* Places it on top of the blurred overlay */
+    padding: 24px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10000;
   }
 
-  .desktop-nav.mobile-menu-open {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+  /* Close Button Styling */
+  .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #333;
+    padding: 8px;
+    margin-bottom: 24px;
+    cursor: pointer;
   }
 
-  .nav-list {
-    flex-direction: column;
-    gap: 32px;
-    margin: 0 0 40px 0;
-    align-items: center;
-  }
-
-  .nav-link {
-    font-size: 28px;
-    color: var(--text-inverse) !important;
-  }
-
-  .header-cta {
-    margin: 0;
+  /* Link Styling */
+  .mobile-links {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Spaces the links out evenly */
   }
 
-  .header-btn {
-    font-size: 1.1rem !important;
-    padding: 16px 32px !important;
+  .mobile-links a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: 600;
+    display: block; /* Makes the whole area clickable, not just the text */
+  }
+
+  .mobile-links a.active {
+    color: var(--accent-primary);
   }
 }
