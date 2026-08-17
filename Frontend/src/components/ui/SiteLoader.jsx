@@ -44,8 +44,7 @@ export const SiteLoader = () => {
         className="site-loader-logo-wrapper interactive" 
         onClick={handleEnterClick}
       >
-        <img 
-          src="/images/logo white.png" 
+        <img loading="lazy" src="/images/logo white.webp" 
           alt="Rachana Aluminium" 
           className="site-loader-logo" 
         />

@@ -46,8 +46,7 @@ export const ProjectModal = ({ project, onClose }) => {
 
         {/* Image Carousel */}
         <div className="modal-carousel">
-          <img
-            key={activeImg}
+          <img loading="lazy" key={activeImg}
             src={project.images[activeImg]}
             alt={`${project.name} – image ${activeImg + 1}`}
             className="modal-carousel-image"

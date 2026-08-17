@@ -11,6 +11,7 @@
   align-items: center;
   overflow: hidden;
   pointer-events: auto;
+  will-change: opacity, visibility;
 }
 
 .hpi-overlay.is-opening {
@@ -38,10 +39,11 @@
   align-items: center;
   cursor: pointer;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .hpi-logo-trigger:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(0);
 }
 
 .hpi-logo-trigger.fade-out {
@@ -93,17 +95,17 @@
 
 /* Keyframes */
 @keyframes hpiPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% { transform: scale(1) translateZ(0); }
+  50% { transform: scale(1.05) translateZ(0); }
+  100% { transform: scale(1) translateZ(0); }
 }
 
 @keyframes hpiLogoFlight {
   0% { 
-    transform: translate(0px, 0px) scale(1); 
+    transform: translate(0px, 0px) scale(1) translateZ(0); 
   }
   100% { 
-    transform: translate(var(--logo-delta-x, -40vw), var(--logo-delta-y, -43vh)) scale(var(--logo-scale, 0.65)); 
+    transform: translate(var(--logo-delta-x, -40vw), var(--logo-delta-y, -43vh)) scale(var(--logo-scale, 0.65)) translateZ(0); 
   }
 }
 

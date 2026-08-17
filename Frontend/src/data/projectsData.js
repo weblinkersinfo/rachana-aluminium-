@@ -15,7 +15,7 @@ export const projectsData = [
     description: 'A large-scale institutional project requiring precision aluminium systems across courtroom facades and administrative blocks. Delivered to exact specifications with durability and professional finish.',
     products: ['System Windows – 36mm Series', 'Sliding Doors', 'Casement Windows'],
     images: [
-      '/images/goa-district-court.jpg',
+      '/images/goa-district-court.webp',
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
     ],
@@ -67,9 +67,9 @@ export const projectsData = [
     description: 'A contemporary four-bedroom residence in Mumbai featuring minimal aluminium profiles throughout. The project emphasized visual lightness and clean sightlines from every room.',
     products: ['System Windows – 25mm Series', 'Casement Windows', 'Pleated Mesh'],
     images: [
-      '/images/mumbai banglow.jpg',
-      '/images/mumbai banglow 2.jpg',
-      '/images/sliding folding door with grill.jpg',
+      '/images/mumbai banglow.webp',
+      '/images/mumbai banglow 2.webp',
+      '/images/sliding folding door with grill.webp',
     ],
   },
   {

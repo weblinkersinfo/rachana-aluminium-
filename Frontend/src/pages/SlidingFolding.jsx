@@ -84,7 +84,7 @@ export const SlidingFolding = () => {
           </div>
 
           <div className="brochure-image-wrap">
-            <img src="/images/sliding folding door with grill.jpg" alt="Sliding Folding Window" className="sliding-folding-img" />
+            <img src="/images/sliding folding door with grill.webp" alt="Sliding Folding Window" className="sliding-folding-img" loading="lazy" />
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ export const SlidingFolding = () => {
 
           {/* Left Column: Seamless Integration */}
           <div className="brochure-waterproof reveal-left">
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2294?auto=format&fit=crop&w=800&q=80" alt="Seamless Integration" className="brochure-waterproof-img" />
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2294?auto=format&fit=crop&w=800&q=80" alt="Seamless Integration" className="brochure-waterproof-img" loading="lazy" />
             <h3 className="brochure-sub-title">Blur the Lines Between Indoors & Out</h3>
             <p className="brochure-text">
               The Sliding Folding System is the ultimate choice for those who love to entertain or appreciate open-concept living. By stacking neatly to one or both sides, it maximizes the clear opening space up to 90%. Precision rollers and tracks ensure that even heavy, double-glazed panels glide with just a gentle push.

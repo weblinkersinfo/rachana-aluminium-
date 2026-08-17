@@ -16,7 +16,7 @@
 .sys-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/images/sys_hero.png');
+  background-image: url('/images/sys_hero.webp');
   background-size: cover;
   background-position: center;
   /* Parallax effect on scroll via animation trick or just fixed */

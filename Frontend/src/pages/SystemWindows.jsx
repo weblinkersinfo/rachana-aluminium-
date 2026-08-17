@@ -27,7 +27,7 @@ export const SystemWindows = () => {
           <div className="sys-series-grid">
             <div className="sys-image-col reveal-left">
               <div className="sys-image-wrapper">
-                <img src="/images/25 mm window.jpg" alt="25mm System Window" className="sys-series-img" />
+                <img src="/images/25 mm window.webp" alt="25mm System Window" className="sys-series-img" loading="lazy" />
                 <div className="sys-image-accent"></div>
               </div>
             </div>
@@ -69,7 +69,7 @@ export const SystemWindows = () => {
             </div>
             <div className="sys-image-col reveal-right">
               <div className="sys-image-wrapper">
-                <img src="/images/sys_29mm.png" alt="29mm System Window" className="sys-series-img" />
+                <img src="/images/sys_29mm.webp" alt="29mm System Window" className="sys-series-img" loading="lazy" />
                 <div className="sys-image-accent left"></div>
               </div>
             </div>
@@ -83,7 +83,7 @@ export const SystemWindows = () => {
           <div className="sys-series-grid">
             <div className="sys-image-col reveal-left">
               <div className="sys-image-wrapper">
-                <img src="/images/sys_36mm.png" alt="36mm System Window" className="sys-series-img" />
+                <img src="/images/sys_36mm.webp" alt="36mm System Window" className="sys-series-img" loading="lazy" />
                 <div className="sys-image-accent"></div>
               </div>
             </div>

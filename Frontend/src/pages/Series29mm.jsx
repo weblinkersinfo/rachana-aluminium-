@@ -70,7 +70,7 @@ export const Series29mm = () => {
           </div>
 
           <div className="brochure-image-wrap">
-            <img src="/images/29mm_frame.png" alt="29mm Profile Render" className="brochure-3d-render" />
+            <img src="/images/29mm_frame.webp" alt="29mm Profile Render" className="brochure-3d-render" loading="lazy" />
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ export const Series29mm = () => {
           
           {/* Left Column: Waterproofing */}
           <div className="brochure-waterproof reveal-left">
-            <img src="/images/29mm_water_proof.png" alt="29mm Waterproofing Detail" className="brochure-waterproof-img" />
+            <img src="/images/29mm_water_proof.webp" alt="29mm Waterproofing Detail" className="brochure-waterproof-img" loading="lazy" />
             <h3 className="brochure-sub-title">The Importance of Waterproofing</h3>
             <p className="brochure-text">
               Advanced weather-sealing technologies ensure that your interiors remain perfectly dry and comfortable. Multiple barriers prevent water ingress even during heavy monsoons, while smartly designed weep holes channel water outwards efficiently without compromising aesthetics.

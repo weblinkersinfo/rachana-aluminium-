@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { navigation, contactInfo } from '../../data/siteData';
 import { ROUTES } from '../../constants/routes';
 import './Footer.css';
 
-export const Footer = () => {
+export const Footer = memo(() => {
   return (
     <footer className="footer bg-dark">
       <div className="container">
@@ -12,7 +12,7 @@ export const Footer = () => {
           
           <div className="footer-brand">
             <Link to={ROUTES.HOME} className="footer-logo">
-              <img src="/images/logo white.png" alt="Rachana Aluminium Logo" className="footer-logo-image" />
+              <img src="/images/logo white.webp" alt="Rachana Aluminium Logo" className="footer-logo-image" loading="lazy" />
             </Link>
             <p className="footer-tagline subheading">Quality at its Best</p>
           </div>
@@ -64,10 +64,10 @@ export const Footer = () => {
           <p className="small-label">&copy; {new Date().getFullYear()} Rachana Aluminium. All rights reserved.</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', opacity: 0.8 }}>
             <p className="small-label" style={{ color: 'var(--text-tertiary)', margin: 0 }}>Raw materials proudly sourced from</p>
-            <img src="/images/Alu_King_logo.png" alt="ALu King Logo" style={{ height: '35px', objectFit: 'contain' }} />
+            <img src="/images/Alu_King_logo.webp" alt="ALu King Logo" style={{ height: '35px', objectFit: 'contain' }} loading="lazy" />
           </div>
         </div>
       </div>
     </footer>
   );
-};
+});

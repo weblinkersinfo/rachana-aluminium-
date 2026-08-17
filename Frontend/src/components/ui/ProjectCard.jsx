@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from './Image';
 import './ProjectCard.css';
 
-export const ProjectCard = ({ image, name, location, category }) => {
+export const ProjectCard = React.memo(({ image, name, location, category }) => {
   return (
     <div className="project-card">
       <div className="project-image-container">
@@ -19,4 +19,4 @@ export const ProjectCard = ({ image, name, location, category }) => {
       </div>
     </div>
   );
-};
+});

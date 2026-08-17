@@ -156,19 +156,21 @@
 }
 
 @keyframes swaReflectLeft {
-  0%, 15% { transform: rotate(15deg) translateX(0%); opacity: 1; }
-  75%, 100% { transform: rotate(15deg) translateX(-50%); opacity: 0; }
+  0%, 15% { transform: rotate(15deg) translateX(0%) translateZ(0); opacity: 1; }
+  75%, 100% { transform: rotate(15deg) translateX(-50%) translateZ(0); opacity: 0; }
 }
 
 @keyframes swaReflectRight {
-  0%, 15% { transform: rotate(15deg) translateX(0%); opacity: 1; }
-  75%, 100% { transform: rotate(15deg) translateX(50%); opacity: 0; }
+  0%, 15% { transform: rotate(15deg) translateX(0%) translateZ(0); opacity: 1; }
+  75%, 100% { transform: rotate(15deg) translateX(50%) translateZ(0); opacity: 0; }
 }
 
 .swa-shutter-left .swa-glass-reflection {
+  will-change: transform, opacity;
   animation: swaReflectLeft var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
 }
 
 .swa-shutter-right .swa-glass-reflection {
+  will-change: transform, opacity;
   animation: swaReflectRight var(--swa-duration) cubic-bezier(0.65, 0, 0.35, 1) var(--swa-delay) var(--swa-iteration) forwards var(--swa-play-state);
 }

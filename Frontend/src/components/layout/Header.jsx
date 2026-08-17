@@ -15,6 +15,18 @@ export const Header = () => {
   const [introState, setIntroState] = useState(isHomePage ? 'centered' : 'done');
   const logoRef = useRef(null);
   const [logoStyle, setLogoStyle] = useState({});
+  const darkSectionsRef = useRef([]);
+  const tickingRef = useRef(false);
+
+  const updateDarkSections = () => {
+    const darkClasses = [
+      '.bg-dark', '.hero', '.why-hero', '.why-connect-cta', '.why-trust-indicators',
+      '.in-house-manufacturing', '.sw-hero', '.project-stats', '.projects-hero',
+      '.projects-connect', '.products-hero', '.products-connect-cta', '.connect-hero',
+      '.footer', '.connect-final-cta', '.manufacturing-story', '.about-hero', '.sys-hero'
+    ].join(', ');
+    darkSectionsRef.current = Array.from(document.querySelectorAll(darkClasses));
+  };
 
   useEffect(() => {
     if (!isHomePage) {
@@ -71,33 +83,32 @@ export const Header = () => {
   }, [introState]);
 
   const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-    setIsScrolled(currentScrollY > 50);
+    if (!tickingRef.current) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        setIsScrolled(currentScrollY > 50);
 
-    const headerHeight = 80;
-    // List of all classes that have a dark background in the CSS
-    const darkClasses = [
-      '.bg-dark', '.hero', '.why-hero', '.why-connect-cta', '.why-trust-indicators',
-      '.in-house-manufacturing', '.sw-hero', '.project-stats', '.projects-hero',
-      '.projects-connect', '.products-hero', '.products-connect-cta', '.connect-hero',
-      '.footer', '.connect-final-cta', '.manufacturing-story', '.about-hero', '.sys-hero'
-    ].join(', ');
-    
-    const darkSections = document.querySelectorAll(darkClasses);
-    let overDark = false;
-    const checkY = headerHeight / 2;
-    
-    darkSections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= checkY && rect.bottom >= checkY) {
-        overDark = true;
-      }
-    });
-    
-    setIsDarkBackground(overDark);
+        const headerHeight = 80;
+        const checkY = headerHeight / 2;
+        let overDark = false;
+
+        for (let i = 0; i < darkSectionsRef.current.length; i++) {
+          const rect = darkSectionsRef.current[i].getBoundingClientRect();
+          if (rect.top <= checkY && rect.bottom >= checkY) {
+            overDark = true;
+            break; // Stop loop once we find a dark section behind the header
+          }
+        }
+        
+        setIsDarkBackground(overDark);
+        tickingRef.current = false;
+      });
+      tickingRef.current = true;
+    }
   };
 
   useEffect(() => {
+    updateDarkSections();
     handleScroll(); // Initial check
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -108,6 +119,7 @@ export const Header = () => {
   useEffect(() => {
     // Small timeout to allow DOM to render the new page
     const timer = setTimeout(() => {
+      updateDarkSections();
       handleScroll();
     }, 50);
     return () => clearTimeout(timer);
@@ -129,7 +141,7 @@ export const Header = () => {
             }
           }}
         >
-          <img src={isDarkBackground ? "/images/logo white.png" : "/images/logo.png"} alt="Rachana Aluminium Logo" className="logo-image" />
+          <img loading="lazy" src={isDarkBackground ? "/images/logo white.webp" : "/images/logo.webp"} alt="Rachana Aluminium Logo" className="logo-image" />
         </Link>
 
         {/* Horizontal Scrollable Navigation */}

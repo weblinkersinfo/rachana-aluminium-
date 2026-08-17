@@ -53,13 +53,13 @@ export const Series36mm = () => {
         <div className="s36-section-detail-left">
           <h2 className="s36-section-title">SECTION DETAIL</h2>
           <div className="s36-cad-flex">
-            <img src="/images/36_mm_section_detail_vertical.png" alt="Vertical Section Detail" className="s36-cad-img" />
-            <img src="/images/36_mm_section_detail_horizontal.png" alt="Horizontal Section Detail" className="s36-cad-img-wide" />
+            <img src="/images/36_mm_section_detail_vertical.webp" alt="Vertical Section Detail" className="s36-cad-img" loading="lazy" />
+            <img src="/images/36_mm_section_detail_horizontal.webp" alt="Horizontal Section Detail" className="s36-cad-img-wide" loading="lazy" />
           </div>
         </div>
 
         {/* Right Side: Diagonal Frame */}
-        <img src="/images/36_mm_frame.png" alt="36mm Series Diagonal Frame Profile" className="s36-diagonal-frame" />
+        <img src="/images/36_mm_frame.webp" alt="36mm Series Diagonal Frame Profile" className="s36-diagonal-frame" loading="lazy" />
       </div>
 
       {/* 4. BOTTOM SPLIT SECTION (Matches Entirety of Image 2) */}
@@ -67,7 +67,7 @@ export const Series36mm = () => {
           
           {/* Left Column: Vertical Frame & Icons */}
           <div className="s36-left-col reveal-left">
-            <img src="/images/36_mm_frame_2.png" alt="36mm Vertical Frame Detail" className="s36-vertical-frame" />
+            <img src="/images/36_mm_frame_2.webp" alt="36mm Vertical Frame Detail" className="s36-vertical-frame" loading="lazy" />
             
             {/* Performance Icons Grid */}
             <div className="s36-icon-grid">
@@ -125,11 +125,11 @@ export const Series36mm = () => {
             <div className="s36-graphics-row">
               <div className="s36-water-drainage">
                 <h3 className="s36-slim-title" style={{marginBottom: '10px'}}>WATER DRAINAGE</h3>
-                <img src="/images/36_mm_waterproof.png" alt="Water Drainage System" />
+                <img src="/images/36_mm_waterproof.webp" alt="Water Drainage System" loading="lazy" />
               </div>
-              <div className="s36-slim-profile">
-                <h3 className="s36-slim-title">SLIM MEETING PROFILE</h3>
-                <img src="/images/36_mm_slim_meeting_profile.png" alt="Slim Meeting Profile" className="s36-slim-img" />
+              <div className="s36-detail-item reveal">
+                <h4 className="detail-title">Slim Meeting Profile</h4>
+                <img src="/images/36_mm_slim_meeting_profile.webp" alt="Slim Meeting Profile" className="s36-slim-img" loading="lazy" />
               </div>
             </div>
 

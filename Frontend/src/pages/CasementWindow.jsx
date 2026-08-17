@@ -103,7 +103,7 @@ export const CasementWindow = () => {
           </div>
 
           <div className="brochure-image-wrap">
-            <img src="/images/design Aluminium-Casement-Windows.webp" alt="Casement Window System" className="casement-window-img" />
+            <img src="/images/design Aluminium-Casement-Windows.webp" alt="Casement Window System" className="casement-window-img" loading="lazy" />
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ export const CasementWindow = () => {
           
           {/* Left Column: Seamless Integration */}
           <div className="brochure-waterproof reveal-left">
-            <img src="/images/casement window.jpg" alt="Classic Design" className="brochure-waterproof-img" />
+            <img src="/images/casement window.webp" alt="Classic Design" className="brochure-waterproof-img" loading="lazy" />
             <h3 className="brochure-sub-title">Unobstructed Views & Fresh Air</h3>
             <p className="brochure-text">
               Unlike sliding windows which always have one panel overlapping the other, casement windows can be cranked completely open, offering you 100% unobstructed views and maximum ventilation. The sash acts like a sail, catching passing breezes and funneling them indoors.

@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, ArrowRight } from 'lucide-react';
 import './ProjectCard.css';
 
-export const ProjectCard = ({ project, onOpen }) => {
+export const ProjectCard = React.memo(({ project, onOpen }) => {
   return (
     <div className="proj-card" onClick={() => onOpen(project)}>
       <div className="proj-card-image-wrap">
@@ -28,4 +28,4 @@ export const ProjectCard = ({ project, onOpen }) => {
       </div>
     </div>
   );
-};
+});

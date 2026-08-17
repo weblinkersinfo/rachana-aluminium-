@@ -25,25 +25,25 @@ export const aluminumSystemProducts = [
     id: 'system-windows',
     title: 'System Windows',
     description: 'Premium aluminium systems designed for modern homes and commercial spaces.',
-    image: '/images/system-windows.jpg',
+    image: '/images/system-windows.webp',
   },
   {
     id: 'sliding-folding',
     title: 'Sliding Folding Windows',
     description: 'Open spaces beautifully with smooth and flexible folding systems.',
-    image: '/images/sliding-folding.jpg',
+    image: '/images/sliding-folding.webp',
     imageStyle: { transform: 'scale(1.3)', objectPosition: 'center center' },
   },
   {
     id: 'casement-window',
     title: 'Casement Windows',
     description: 'Clean and practical window systems offering ventilation and timeless design.',
-    image: '/images/casement.jpg',
+    image: '/images/casement.webp',
   },
   {
     id: 'pleated-mesh',
     title: 'Pleated Mesh',
     description: 'Elegant insect protection that integrates seamlessly with modern windows.',
-    image: '/images/pleated-mesh.jpg',
+    image: '/images/pleated-mesh.webp',
   }
 ];
