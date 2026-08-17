@@ -43,13 +43,13 @@ export const ManufacturingStory = () => {
           <div className="mfg-side-content">
             <div className="mfg-images-grid">
               <div className="mfg-image-wrapper">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+                <img loading="lazy" src="/images/unsplash/photo-1581091226825-a6a2a5aee158.webp" 
                   alt="Precision Manufacturing"
                   className="mfg-side-image"
                 />
               </div>
               <div className="mfg-image-wrapper">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" 
+                <img loading="lazy" src="/images/unsplash/photo-1504307651254-35680f356dfd.webp" 
                   alt="Workshop gallery"
                   className="mfg-side-image"
                 />

@@ -15,7 +15,7 @@ export const ProjectsHero = () => {
         className={`proj-hero-bg ${isLoaded ? 'loaded' : ''}`}
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&w=1920&q=80)',
+            'url(/images/unsplash/photo-1555636222-cae831e670b3.webp)',
         }}
       ></div>
       <div className="proj-hero-overlay"></div>

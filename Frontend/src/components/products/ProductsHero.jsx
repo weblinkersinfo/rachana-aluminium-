@@ -15,7 +15,7 @@ export const ProductsHero = () => {
     <section className="products-hero">
       <div 
         className={`products-hero-bg ${isLoaded ? 'loaded' : ''}`}
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80)' }}
+        style={{ backgroundImage: 'url(/images/unsplash/photo-1600585154340-be6161a56a0c.webp)' }}
       ></div>
       <div className="products-hero-overlay"></div>
       

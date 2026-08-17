@@ -9,7 +9,7 @@ export const CompanyIntro = () => {
           <div className="company-intro-image-col">
             <div className="company-intro-image-wrap">
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                src="/images/unsplash/photo-1503387762-592deb58ef4e.webp"
                 alt="Rachana Aluminium project — large aluminium window installation"
                 className="company-intro-image"
                 loading="lazy"

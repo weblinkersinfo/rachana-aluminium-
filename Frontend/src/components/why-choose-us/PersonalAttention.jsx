@@ -31,7 +31,7 @@ export const PersonalAttention = () => {
 
           <div className="pa-image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+              src="/images/unsplash/photo-1600585154340-be6161a56a0c.webp"
               alt="A beautifully completed residential project with aluminium systems"
               className="pa-image"
               loading="lazy"

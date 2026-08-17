@@ -11,7 +11,7 @@ export const InHouseManufacturing = () => {
         <div ref={ref} className={`ihm-grid reveal ${isRevealed ? 'is-revealed' : ''}`}>
           <div className="ihm-image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80"
+              src="/images/unsplash/photo-1581091226825-a6a2a5aee158.webp"
               alt="In-house precision manufacturing at Rachana Aluminium workshop"
               className="ihm-image"
               loading="lazy"

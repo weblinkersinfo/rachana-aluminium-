@@ -9,7 +9,7 @@ export const ProjectPhilosophy = () => {
           {/* Image */}
           <div className="phil-image-col">
             <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80"
+              src="/images/unsplash/photo-1504307651254-35680f356dfd.webp"
               alt="Craftsmen at work in the Rachana Aluminium workshop"
               className="phil-image"
               loading="lazy"

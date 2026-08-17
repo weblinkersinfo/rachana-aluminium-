@@ -17,7 +17,7 @@ export const ConnectHero = () => {
         className={`conn-hero-bg ${isLoaded ? 'loaded' : ''}`}
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80)',
+            'url(/images/unsplash/photo-1600585154340-be6161a56a0c.webp)',
         }}
       ></div>
       <div className="conn-hero-overlay"></div>

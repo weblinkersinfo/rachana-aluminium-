@@ -16,8 +16,8 @@ export const projectsData = [
     products: ['System Windows – 36mm Series', 'Sliding Doors', 'Casement Windows'],
     images: [
       '/images/goa-district-court.webp',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1486325212027-8081e485255e.webp',
+      '/images/unsplash/photo-1503387762-592deb58ef4e.webp',
     ],
   },
   {
@@ -28,8 +28,8 @@ export const projectsData = [
     description: 'A sprawling modern farmhouse featuring floor-to-ceiling sliding systems and pleated mesh throughout, blending the indoors with the surrounding landscape.',
     products: ['Sliding Folding Systems', 'Pleated Mesh', 'System Windows – 29mm Series'],
     images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1600596542815-ffad4c1539a9.webp',
+      '/images/unsplash/photo-1600585154340-be6161a56a0c.webp',
       'https://images.unsplash.com/photo-1600566753086-00f18efc2297?auto=format&fit=crop&w=1200&q=80',
     ],
   },
@@ -41,9 +41,9 @@ export const projectsData = [
     description: 'A premium penthouse apartment with panoramic city views. Slim-profile system windows and motorized sliding doors were installed for a seamless living experience.',
     products: ['System Windows – 25mm Series', 'Sliding Doors'],
     images: [
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1600607687920-4e2a09cf159d.webp',
+      '/images/unsplash/photo-1600210492493-0946911123ea.webp',
+      '/images/unsplash/photo-1558618666-fcd25c85cd64.webp',
     ],
   },
   {
@@ -54,9 +54,9 @@ export const projectsData = [
     description: 'A premium hill-station resort where large sliding folding systems were installed across every suite and common area, allowing guests to fully open rooms to the mountain views.',
     products: ['Sliding Folding Systems', 'System Windows – 36mm Series', 'Pleated Mesh'],
     images: [
-      'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1571003123894-1f0594d2b5d9.webp',
+      '/images/unsplash/photo-1566073771259-6a8506099945.webp',
+      '/images/unsplash/photo-1631049307264-da0ec9d70304.webp',
     ],
   },
   {
@@ -80,9 +80,9 @@ export const projectsData = [
     description: 'A boutique heritage property in Goa where uPVC solutions and carefully selected aluminium systems were installed to preserve the architectural character while improving comfort and efficiency.',
     products: ['uPVC Solutions', 'Casement Windows', 'Pleated Mesh'],
     images: [
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1543968996-ee822b8176ba?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1520250497591-112f2f40a3f4.webp',
+      '/images/unsplash/photo-1551882547-ff40c63fe5fa.webp',
+      '/images/unsplash/photo-1543968996-ee822b8176ba.webp',
     ],
   },
   {
@@ -93,9 +93,9 @@ export const projectsData = [
     description: 'A five-storey commercial office building featuring large curtain-style system windows that maximize natural light across open-plan workspaces. Completed on a tight construction schedule.',
     products: ['System Windows – 36mm Series', 'Sliding Doors'],
     images: [
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1497366216548-37526070297c.webp',
+      '/images/unsplash/photo-1556909114-f6e7ad7d3136.webp',
+      '/images/unsplash/photo-1486325212027-8081e485255e.webp',
     ],
   },
   {
@@ -106,9 +106,9 @@ export const projectsData = [
     description: 'A hillside weekend retreat designed for maximum openness. Floor-to-ceiling sliding folding systems on three walls allow the living space to transform into an open pavilion overlooking the valley.',
     products: ['Sliding Folding Systems', 'System Windows – 29mm Series'],
     images: [
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1580587771525-78b9dba3b914.webp',
+      '/images/unsplash/photo-1613977257363-707ba9348227.webp',
+      '/images/unsplash/photo-1600585154526-990dced4db0d.webp',
     ],
   },
   {
@@ -119,9 +119,9 @@ export const projectsData = [
     description: 'A unique marine project requiring custom aluminium systems designed to withstand a coastal environment. Marine-grade sealing and finishes were applied throughout.',
     products: ['System Windows – 29mm Series', 'Sliding Doors', 'uPVC Solutions'],
     images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1582719478250-c89cae4dc85b.webp',
       'https://images.unsplash.com/photo-1545060894-7862d30b58e2?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1568702846914-96b305d2aaeb.webp',
     ],
   },
   {
@@ -132,9 +132,9 @@ export const projectsData = [
     description: 'A mixed-use commercial complex with ground-floor retail and office levels above. System windows and sliding doors were specified throughout for a consistent, professional appearance.',
     products: ['System Windows – 36mm Series', 'Sliding Doors', 'Casement Windows'],
     images: [
-      'https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1464938050520-ef2270bb8ce8.webp',
+      '/images/unsplash/photo-1486325212027-8081e485255e.webp',
+      '/images/unsplash/photo-1497366216548-37526070297c.webp',
     ],
   },
   {
@@ -145,9 +145,9 @@ export const projectsData = [
     description: 'A 72-unit residential apartment complex fitted with standardized system window packages. Uniform appearance across the facade with individual unit customization.',
     products: ['System Windows – 25mm Series', 'Casement Windows', 'Pleated Mesh'],
     images: [
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1545324418-cc1a3fa10c00.webp',
+      '/images/unsplash/photo-1460317442991-0ec209397118.webp',
+      '/images/unsplash/photo-1568605114967-8130f3a36994.webp',
     ],
   },
   {
@@ -158,9 +158,9 @@ export const projectsData = [
     description: 'A regional government administrative office requiring institutional-grade aluminium systems with enhanced security hardware. Executed within a strict government procurement timeline.',
     products: ['System Windows – 36mm Series', 'Casement Windows', 'Sliding Doors'],
     images: [
-      'https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+      '/images/unsplash/photo-1555636222-cae831e670b3.webp',
+      '/images/unsplash/photo-1478720568477-152d9b164e26.webp',
+      '/images/unsplash/photo-1503387762-592deb58ef4e.webp',
     ],
   },
 ];

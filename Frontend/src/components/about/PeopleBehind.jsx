@@ -10,13 +10,13 @@ export const PeopleBehind = () => {
           <div className="people-image-col">
             <div className="people-images">
               <img
-                src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80"
+                src="/images/unsplash/photo-1574362848149-11496d93a7c7.webp"
                 alt="Craftsmen working in the Rachana Aluminium workshop"
                 className="people-img people-img--main"
                 loading="lazy"
               />
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                src="/images/unsplash/photo-1504307651254-35680f356dfd.webp"
                 alt="Rachana Aluminium team at work"
                 className="people-img people-img--secondary"
                 loading="lazy"

@@ -6,11 +6,11 @@ import { ROUTES } from '../../constants/routes';
 import './Hero.css';
 
 const slides = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80', alt: 'Farmhouse with system windows' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=80', alt: 'Elegant apartment project' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=2000&q=80', alt: 'Workshop craftsmanship' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=80', alt: 'Commercial project' },
-  { id: 5, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80', alt: 'Showroom display' },
+  { id: 1, image: '/images/unsplash/photo-1600596542815-ffad4c1539a9.webp', alt: 'Farmhouse with system windows' },
+  { id: 2, image: '/images/unsplash/photo-1600607687920-4e2a09cf159d.webp', alt: 'Elegant apartment project' },
+  { id: 3, image: '/images/unsplash/photo-1589939705384-5185137a7f0f.webp', alt: 'Workshop craftsmanship' },
+  { id: 4, image: '/images/unsplash/photo-1618221195710-dd6b41faaea6.webp', alt: 'Commercial project' },
+  { id: 5, image: '/images/unsplash/photo-1600585154340-be6161a56a0c.webp', alt: 'Showroom display' },
 ];
 
 export const Hero = () => {

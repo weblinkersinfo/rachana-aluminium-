@@ -12,7 +12,7 @@ export const VisitShowroom = () => {
         <div ref={ref} className={`vs-grid reveal ${isRevealed ? 'is-revealed' : ''}`}>
           <div className="vs-image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
+              src="/images/unsplash/photo-1600607687939-ce8a6c25118c.webp"
               alt="Rachana Aluminium showroom with product displays"
               className="vs-image"
               loading="lazy"

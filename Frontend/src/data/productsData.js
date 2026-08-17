@@ -3,7 +3,7 @@ export const aluminumProducts = [
     id: 'aluminum',
     title: 'Aluminum',
     description: 'Premium aluminum systems designed for modern homes and commercial spaces.',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+    image: '/images/unsplash/photo-1600596542815-ffad4c1539a9.webp',
   }
 ];
 
@@ -12,7 +12,7 @@ export const upvcProducts = [
     id: 'upvc',
     title: 'UPVC',
     description: 'Durable and energy-efficient UPVC solutions for comfort and style.',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/unsplash/photo-1600607687920-4e2a09cf159d.webp',
   }
 ];
 
