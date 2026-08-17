@@ -15,6 +15,25 @@
 
 @media (max-width: 767px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+  }
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .projects-grid > div {
+    min-width: 85vw;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+  .projects-grid .project-card:first-child {
+    grid-column: auto;
   }
 }

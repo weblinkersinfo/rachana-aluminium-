@@ -4,6 +4,7 @@ import { ROUTES } from './constants/routes';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { MobileActionBar } from './components/layout/MobileActionBar';
 import { HomePageIntro } from './components/ui/HomePageIntro';
 import { SiteLoader } from './components/ui/SiteLoader'; // We'll use this as fallback
 
@@ -43,6 +44,7 @@ export const AppRoutes = () => {
           <Route path={ROUTES.CASEMENT_WINDOW} element={<CasementWindow />} />
         </Routes>
       </Suspense>
+      <MobileActionBar />
       <Footer />
     </BrowserRouter>
   );

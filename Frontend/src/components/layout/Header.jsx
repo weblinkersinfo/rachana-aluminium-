@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { navigation } from '../../data/siteData';
 import { ROUTES } from '../../constants/routes';
@@ -8,6 +9,7 @@ import './Header.css';
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   
@@ -117,6 +119,7 @@ export const Header = () => {
 
   // Re-check theme when route changes
   useEffect(() => {
+    setIsMobileMenuOpen(false); // Close menu on route change
     // Small timeout to allow DOM to render the new page
     const timer = setTimeout(() => {
       updateDarkSections();
@@ -144,8 +147,18 @@ export const Header = () => {
           <img loading="lazy" src={isDarkBackground ? "/images/logo white.webp" : "/images/logo.webp"} alt="Rachana Aluminium Logo" className="logo-image" />
         </Link>
 
-        {/* Horizontal Scrollable Navigation */}
-        <nav className="desktop-nav" style={{ opacity: introState === 'done' ? 1 : 0, transition: 'opacity 0.5s ease', pointerEvents: introState === 'done' ? 'auto' : 'none' }}>
+        {/* Hamburger Toggle */}
+        <button 
+          className={`mobile-menu-toggle ${isDarkBackground && !isScrolled && !isMobileMenuOpen ? 'text-inverse' : ''}`} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          style={{ opacity: introState === 'done' ? 1 : 0, pointerEvents: introState === 'done' ? 'auto' : 'none' }}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
+
+        {/* Navigation */}
+        <nav className={`desktop-nav ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`} style={{ opacity: introState === 'done' ? 1 : 0, transition: 'opacity 0.5s ease', pointerEvents: introState === 'done' ? 'auto' : 'none' }}>
           <ul className="nav-list">
             {navigation.map((link) => (
               <li key={link.name}>

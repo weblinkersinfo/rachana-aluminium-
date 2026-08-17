@@ -36,6 +36,22 @@
 
 @media (max-width: 767px) {
   .products-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+  }
+  .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .products-grid > div {
+    min-width: 80vw;
+    scroll-snap-align: center;
+    flex-shrink: 0;
   }
 }
