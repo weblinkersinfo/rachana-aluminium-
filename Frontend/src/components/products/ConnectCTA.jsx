@@ -14,14 +14,7 @@ export const ConnectCTA = ({
         <div className="connect-cta-content">
           <h2 className="connect-cta-title">{title}</h2>
           <p className="connect-cta-desc">{description}</p>
-          <div className="connect-cta-action" style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="secondary">Connect With Us</Button>
-            </Link>
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="primary">Plan Your Visit</Button>
-            </Link>
-          </div>
+          
         </div>
       </div>
     </section>

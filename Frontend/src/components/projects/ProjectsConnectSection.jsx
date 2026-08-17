@@ -13,14 +13,7 @@ export const ProjectsConnectSection = () => {
           <p className="proj-connect-desc">
             Visit our showroom or connect with our team to discuss your requirements and explore suitable solutions.
           </p>
-          <div className="proj-connect-actions">
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="secondary">Connect With Us</Button>
-            </Link>
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="primary">Plan Your Visit</Button>
-            </Link>
-          </div>
+          
         </div>
       </div>
     </section>

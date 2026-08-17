@@ -17,14 +17,7 @@ export const WhyConnectCTA = () => {
           <p className="wcta-desc">
             Whether you are planning a home, a commercial space, or a large project, we would be happy to understand your requirements and guide you.
           </p>
-          <div className="wcta-actions">
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="primary">Connect With Us</Button>
-            </Link>
-            <Link to={ROUTES.CONNECT}>
-              <Button variant="primary">Plan Your Visit</Button>
-            </Link>
-          </div>
+          
         </div>
       </div>
     </section>

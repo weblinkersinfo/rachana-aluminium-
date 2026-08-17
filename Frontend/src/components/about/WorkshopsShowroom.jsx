@@ -30,9 +30,7 @@ export const WorkshopsShowroom = () => {
             <p className="ws-card-desc">
               Our showroom allows customers to experience products, configurations, and finishes before making decisions.
             </p>
-            <Link to={ROUTES.CONNECT} className="ws-card-cta">
-              <Button variant="primary">Plan Your Visit</Button>
-            </Link>
+
           </div>
         </div>
       </div>

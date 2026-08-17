@@ -31,11 +31,7 @@ export const VisitShowroom = () => {
             <p className="vs-text">
               Because every project deserves thoughtful decisions.
             </p>
-            <div className="vs-cta">
-              <a href="#inquiry-form">
-                <Button variant="primary">Plan Your Visit</Button>
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>

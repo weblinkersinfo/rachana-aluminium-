@@ -18,11 +18,7 @@ export const ConnectSection = () => {
         <p className="connect-statement reveal-stagger">
           Visit our showroom, explore our products, or connect with our team for a free site visit and measurement.
         </p>
-        <div className="connect-action reveal-stagger">
-          <Link to={ROUTES.CONNECT}>
-            <Button variant="primary" className="connect-round-btn">Connect With Us</Button>
-          </Link>
-        </div>
+        
       </div>
     </section>
   );

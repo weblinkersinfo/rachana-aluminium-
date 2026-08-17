@@ -15,11 +15,7 @@ export const ConnectFinalCTA = () => {
           <p className="cfcta-desc">
             Every project deserves thoughtful decisions and personal attention. We'd be delighted to understand your requirements and explore the possibilities together.
           </p>
-          <div className="cfcta-actions">
-            <a href="#visit-showroom">
-              <Button variant="primary">Plan Your Visit</Button>
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>

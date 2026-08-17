@@ -75,9 +75,7 @@ export const Hero = () => {
           <Link to={ROUTES.PROJECTS}>
             <Button variant="primary" className="pill-btn">Explore Projects</Button>
           </Link>
-          <Link to={ROUTES.CONNECT}>
-            <Button variant="secondary" className="hero-secondary-btn">Connect With Us</Button>
-          </Link>
+          
         </div>
       </div>
 

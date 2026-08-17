@@ -29,11 +29,7 @@ export const ConnectHero = () => {
           <p className="conn-hero-subtitle">
             Whether you're building a new home, renovating an existing space, or planning a commercial project, we're here to understand your requirements and help you make informed decisions.
           </p>
-          <div className="conn-hero-actions">
-            <a href="#visit-showroom">
-              <Button variant="primary">Plan Your Visit</Button>
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>

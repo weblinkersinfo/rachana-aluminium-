@@ -130,9 +130,7 @@ export const InquiryForm = () => {
               </div>
 
               <div className="iq-submit">
-                <Button variant="primary" loading={loading}>
-                  Connect With Us
-                </Button>
+                <Button variant="primary" loading={loading}>Submit Inquiry</Button>
               </div>
             </form>
           )}

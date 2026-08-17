@@ -113,9 +113,7 @@ export const SystemWindows = () => {
           <p style={{ maxWidth: '600px', margin: '0 auto var(--space-lg)', color: 'rgba(255,255,255,0.7)' }}>
             Visit our showroom to feel the smooth operation, observe the heavy materials, and appreciate the minimalistic aesthetics of our System Windows.
           </p>
-          <Link to={ROUTES.CONNECT} className="btn btn-primary" style={{ display: 'inline-flex', padding: '16px 32px' }}>
-            Schedule a Visit <ArrowRight size={20} className="btn-icon" />
-          </Link>
+          
         </div>
       </section>
 
